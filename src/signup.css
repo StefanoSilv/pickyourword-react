@@ -1,0 +1,22 @@
+#signup_form{
+	width:60%;
+	margin:0 auto;
+	padding-top: 10%;
+	max-width: 500px;
+}
+
+#login-message{
+	float: right;
+	color: white;
+	padding: 30px;
+}
+
+#login-redirect{
+	color: purple;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#error_message{
+	color: red;
+}
