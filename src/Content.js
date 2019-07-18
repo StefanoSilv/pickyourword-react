@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import './Content.css';
+import StartGameButton from './StartGameButton'
+import EscButton from './EscButton'
+import SkipButton from './SkipButton'
+import Question from './Question'
 
 
 class Content extends Component {
@@ -10,7 +14,12 @@ class Content extends Component {
 	// Render
 	render() {
 		return (
-				<div></div>
+				<div>
+				<StartGameButton />
+
+				<EscButton />
+				<SkipButton />
+				</div>
 		)
 	}
 }

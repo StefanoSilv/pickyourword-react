@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import './Navbar.css';
-import User from './User'
+import './SkipButton.css';
 
 
-class Navbar extends Component {
+class SkipButton extends Component {
 	// Data
 
 	// Functions
@@ -11,11 +10,11 @@ class Navbar extends Component {
 	// Render
 	render() {
 		return (
-			<div><User />
+			<div>
 			</div>
 
 		)
 	}
 }
 
-export default Navbar;
+export default SkipButton;
