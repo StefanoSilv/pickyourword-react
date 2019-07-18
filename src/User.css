@@ -28,6 +28,10 @@
 	position: relative;
 }
 
+.show{
+	display: block !important;
+}
+
 #logged-in > ul > li{
 	padding:10px;
 	font-style: italic;
