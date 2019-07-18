@@ -10,7 +10,7 @@ class StartGameButton extends Component {
 	// Render
 	render() {
 		return (
-			<button id="start-game-button" type="button" class="btn btn-primary btn-lg">START THE GAME</button>
+			<button onClick={ () => this.props.gameMode()} id="start-game-button" type="button" className="btn btn-primary btn-lg">START THE GAME</button>
 		)
 	}
 }
