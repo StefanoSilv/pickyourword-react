@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import './Content.css';
+import './User.css';
 
 
-class Content extends Component {
+
+
+class User extends Component {
 	// Data
 
 	// Functions
@@ -10,9 +12,11 @@ class Content extends Component {
 	// Render
 	render() {
 		return (
-				<div></div>
+			<div>
+
+			</div>
 		)
 	}
 }
 
-export default Content;
+export default User;

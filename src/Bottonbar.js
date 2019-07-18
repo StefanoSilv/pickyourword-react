@@ -10,6 +10,7 @@ class Bottonbar extends Component {
 	// Render
 	render() {
 		return (
+				<div></div>
 		)
 	}
 }
