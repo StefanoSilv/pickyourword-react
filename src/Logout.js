@@ -11,7 +11,6 @@ class Logout extends Component {
 	logout = (e) => {
 		e.preventDefault()
 		localStorage.removeItem('token')
-		window.location.href = '/login'
 	}
 
 	// Render
