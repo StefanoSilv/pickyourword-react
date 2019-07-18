@@ -10,7 +10,7 @@ class EscButton extends Component {
 	// Render
 	render() {
 		return (
-			<button id="esc-button" type="button" class="btn btn-lg btn-danger btn-arrow-right">Esc</button>
+			<button onClick={ () => this.props.escMode()} id="esc-button" type="button" className="btn btn-lg btn-danger btn-arrow-right">Esc</button>
 		)
 	}
 }

@@ -10,13 +10,13 @@ class Bottonbar extends Component {
 	// Render
 	render() {
 		return (
-			<div id="bottonbar" class="row align-items-center">
-				<div id="info" class="col-6">
+			<div id="bottonbar" className="row align-items-center">
+				<div id="info" className="col-6">
 					<p>App developed by Stefano Silvestrini</p>
 					<p>Tortuga Coders</p>
 					<p>Koh Samui, Thailand</p>
 				</div>
-				<div id="sharing" class="col-6">Sharing button</div>
+				<div id="sharing" className="col-6">Sharing button</div>
 			</div>
 		)
 	}
