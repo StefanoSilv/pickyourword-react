@@ -35,7 +35,7 @@ class Signup extends Component {
 				localStorage.setItem('token', res.data.token)
 				this.props.auth()
 			} else  {
-				document.getElementById('error_message').innerHTML='The name already exists'
+				document.getElementById('error_message').innerHTML='The name or email already exists'
 			}
 
 		}).catch( (err) => {
