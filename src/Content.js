@@ -4,6 +4,7 @@ import StartGameButton from './StartGameButton'
 import EscButton from './EscButton'
 import SkipButton from './SkipButton'
 import Question from './Question'
+import Answer from './Answer'
 
 
 class Content extends Component {
@@ -16,7 +17,8 @@ class Content extends Component {
 		return (
 				<div>
 				<StartGameButton />
-
+				<Question />
+				<Answer />
 				<EscButton />
 				<SkipButton />
 				</div>
