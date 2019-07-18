@@ -15,13 +15,15 @@ class Content extends Component {
 	// Render
 	render() {
 		return (
-				<div>
-				<StartGameButton />
+			<div id="content" class="row">
 				<Question />
 				<Answer />
-				<EscButton />
-				<SkipButton />
+				<div id="button-part">
+					<EscButton />
+					<SkipButton />
 				</div>
+				<StartGameButton />
+			</div>
 		)
 	}
 }
