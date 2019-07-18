@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './User.css';
+import Logout from './Logout'
 
 
 
@@ -32,6 +33,7 @@ var x = document.getElementById("user-unordered-list")
 							<li>Trophies:1000</li>
 							<li>Subscription date: 15/09/2020</li>
 							<li>Account: normal</li>
+							<li><Logout /></li>
 						</ul>
 				</div>
 			</div>
