@@ -11,7 +11,11 @@ class Navbar extends Component {
 	// Render
 	render() {
 		return (
-			<div><User />
+			<div id="navbar" class="row">
+				<div id="game-logo">Game logo</div>
+				<div id="points-level">Points & level</div>
+				<div id="trophy">Last trophy</div>
+				<User />
 			</div>
 
 		)
