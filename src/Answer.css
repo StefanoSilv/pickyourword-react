@@ -12,6 +12,9 @@
 	color: green;
 	min-width: 500px;
 	margin-top: 15px;
+	width: 80%;
+	max-width: 800px;
+	min-width: 300px;
 }
 
 #answer-box > .input-group {

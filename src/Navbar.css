@@ -25,3 +25,9 @@
 	min-height:80px;
 	height:100px;
 }
+
+#logged-in > p , #logged-in > span{
+	font-weight: bold;
+	cursor: pointer;
+	text-decoration: underline;
+}
