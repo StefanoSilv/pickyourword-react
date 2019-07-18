@@ -1,1 +1,35 @@
+#user-navbar{
+	border-left:1px solid black;
+}
 
+#logged-in{
+	width:calc(100% + 20px);
+}
+
+#get-premium{
+	margin-top: 5px;
+	text-decoration: underline;
+	font-style: italic;
+}
+
+#user-account{
+	cursor:pointer;
+	margin-top: 10px;
+	padding:5px;
+	text-decoration: underline;
+}
+
+#logged-in > ul{
+	display: none;
+	list-style: none;
+	z-index: 3;
+	background-color: white;
+	margin-bottom: 0;
+	position: relative;
+}
+
+#logged-in > ul > li{
+	padding:10px;
+	font-style: italic;
+	border: 1px solid black;
+}

@@ -1,1 +1,9 @@
+body, html{
+	background-color:#fcf8ec;
+	height:100vh;
+}
 
+*{
+	margin:0;
+	padding:0;
+}

@@ -1,1 +1,8 @@
-
+#start-game-button{
+	position: absolute;
+	align-self: center;
+	justify-self: center;
+	width: 60%;
+	height:20%;
+	border-radius: 10px;
+}
