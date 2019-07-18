@@ -9,20 +9,37 @@ import Answer from './Answer'
 
 class Content extends Component {
 	// Data
+		state = {
+			mode: false
+		}
 
 	// Functions
+
+	gameMode = () => {
+			this.setState({
+			mode: true
+			})
+	}
+
+	escMode = () => {
+		this.setState({
+		mode: false
+		})
+	}
+
 
 	// Render
 	render() {
 		return (
-			<div id="content" class="row">
-				<Question />
-				<Answer />
-				<div id="button-part">
-					<EscButton />
-					<SkipButton />
-				</div>
-				<StartGameButton />
+			<div id="content" className="row">
+				{this.state.mode ? (<div id="content" className="row">
+					<Question />
+					<Answer />
+					<div id="button-part">
+						<EscButton escMode={this.escMode} />
+						<SkipButton />
+					</div>
+				</div>) : ( <StartGameButton gameMode={this.gameMode} />) }
 			</div>
 		)
 	}
