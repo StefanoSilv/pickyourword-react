@@ -1,1 +1,23 @@
+#question-box{
+	max-width: 80%;
+	min-width: 80%;
+	width: 600px;
+	border: 1px solid black;
+	background: rgb(235, 235, 235);
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+	border-radius: 20px;
+}
 
+#word-box{
+	font-size: 32px;
+	justify-self:center;
+	text-align: center;
+	background: rgb(235, 235, 235);
+	border: 1px solid black;
+	padding: 5px;
+	margin: auto;
+	border-radius: 10px;
+	color: black;
+}
