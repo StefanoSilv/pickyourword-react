@@ -14,7 +14,7 @@ class App extends Component {
 	// Render
 	render() {
 		return (
-			<div id="wrap">
+			<div id="main-container" class="container-fluid h-100">
 				<Navbar />
 				<Content />
 				<Bottonbar />
