@@ -1,1 +1,14 @@
+#bottonbar{
+	height:100px;
+	background-color: white;
+	border-top: 1px solid black;
+}
 
+#sharing{
+	text-align: center;
+}
+
+#info{
+	line-height: 12px;
+	padding-left: 50px;
+}
