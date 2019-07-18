@@ -14,7 +14,7 @@
 
 #user-account{
 	cursor:pointer;
-	margin-top: 10px;
+	margin-top: 5px;
 	padding:5px;
 	text-decoration: underline;
 }
@@ -33,6 +33,7 @@
 }
 
 #logged-in > ul > li{
+	z-index:4;
 	padding:10px;
 	font-style: italic;
 	border: 1px solid black;
