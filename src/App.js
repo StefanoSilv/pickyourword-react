@@ -17,10 +17,12 @@ class App extends Component {
 
 
 	componentWillMount() {
-		axios.get(`${process.env.REACT_APP_API}/api/me`).then((res) => {
+		axios.get(`${process.env.REACT_APP_API}/api/me`, {headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}}).then( (res) => {
+			console.log('res', res);
 
-			console.log('res', res.data);
-	}).catch( (err) => {
+		}).catch( (err) => {
 		console.log(err);
 	})
 }
