@@ -10,9 +10,7 @@ class EscButton extends Component {
 	// Render
 	render() {
 		return (
-			<div>
-			</div>
-
+			<button id="esc-button" type="button" class="btn btn-lg btn-danger btn-arrow-right">Esc</button>
 		)
 	}
 }

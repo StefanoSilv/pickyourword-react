@@ -10,9 +10,7 @@ class SkipButton extends Component {
 	// Render
 	render() {
 		return (
-			<div>
-			</div>
-
+			<button id="skip-button" type="button" class="btn btn-lg btn-outline-dark btn-arrow-right">Skip</button>
 		)
 	}
 }
