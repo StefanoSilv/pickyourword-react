@@ -10,9 +10,14 @@ class Answer extends Component {
 	// Render
 	render() {
 		return (
-			<div>
+			<div id="answer-box">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Pick your word" />
+					<div id="confirm-button" class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button">Confirm!</button>
+					</div>
+				</div>
 			</div>
-
 		)
 	}
 }

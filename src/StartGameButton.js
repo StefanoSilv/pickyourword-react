@@ -10,9 +10,7 @@ class StartGameButton extends Component {
 	// Render
 	render() {
 		return (
-			<div>
-			</div>
-
+			<button id="start-game-button" type="button" class="btn btn-primary btn-lg">START THE GAME</button>
 		)
 	}
 }
