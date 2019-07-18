@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import Navbar from './Navbar'
+import Bottonbar from './Bottonbar'
+import Content from './Content'
 
-function App() {
-  return (
-    <h1>Hello</h1>
-  );
+
+
+class App extends Component {
+	// Data
+
+	// Functions
+
+	// Render
+	render() {
+		return (
+			<div id="wrap">
+				<Navbar />
+				<Content />
+				<Bottonbar />
+			</div>
+		)
+	}
 }
 
 export default App;
