@@ -5,6 +5,7 @@ import Signup from './Signup'
 import App from './App'
 import Login from './Login'
 import dotenv from 'dotenv'
+import axios from 'axios'
 
 class Routes extends Component {
 	//state
