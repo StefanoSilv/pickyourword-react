@@ -9,8 +9,8 @@ class Logout extends Component {
 	// Functions
 	//Function that remove the local storage and redirect you to the loginpage
 	logout = (e) => {
-		e.preventDefault()
 		localStorage.removeItem('token')
+		document.location.reload(true)
 	}
 
 	// Render
