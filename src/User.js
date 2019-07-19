@@ -21,13 +21,7 @@ var x = document.getElementById("user-unordered-list")
 	}
 }
 
-componentWillReceiveProps(props){
-	console.log('props',props);
-}
 
-componentWillMount(){
-	console.log('mount', this.state.me);
-}
 	// Render
 	render() {
 		return (

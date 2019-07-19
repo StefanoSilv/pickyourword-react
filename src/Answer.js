@@ -23,6 +23,7 @@ class Answer extends Component {
 	}
 
 	createAnswer = (e, text) => {
+		console.log('Hello');
 		e.preventDefault()
 		axios.post(
 			`${process.env.REACT_APP_API}/api/checkAnswer`,
