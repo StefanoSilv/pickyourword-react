@@ -7,6 +7,9 @@ import Logout from './Logout'
 
 class User extends Component {
 	// Data
+	state = {
+		me : this.props.me
+	}
 
 	// Functions
 dropdownMenu = () => {
@@ -18,6 +21,13 @@ var x = document.getElementById("user-unordered-list")
 	}
 }
 
+componentWillReceiveProps(props){
+	console.log('props',props);
+}
+
+componentWillMount(){
+	console.log('mount', this.state.me);
+}
 	// Render
 	render() {
 		return (
@@ -26,13 +36,13 @@ var x = document.getElementById("user-unordered-list")
 					<button id="get-premium" type="button" className="btn btn-outline-warning">Get Premium</button>
 					<p id="user-account" onClick={() => this.dropdownMenu()}>Your account</p>
 						<ul id="user-unordered-list">
-							<li id="nickname-navbar">Nickname: randomnickname</li>
-							<li>email: randomemail</li>
-							<li>level: 10000000000</li>
-							<li>points:100000000000</li>
-							<li>Trophies:1000</li>
-							<li>Subscription date: 15/09/2020</li>
-							<li>Account: normal</li>
+							<li id="nickname-navbar">Nickname: {this.state.me.name}</li>
+							<li>email: {this.state.me.email}</li>
+							<li>level: {this.state.me.level}</li>
+							<li>points: {this.state.me.points}</li>
+							<li>Trophies: {this.state.me.trohpy}</li>
+							<li>Subscription date: {this.state.me.iscription_date}</li>
+							<li>Account: {this.state.me.user_type}</li>
 							<li><Logout /></li>
 						</ul>
 				</div>

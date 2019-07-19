@@ -1,11 +1,42 @@
 import React, {Component} from 'react';
 import './Question.css';
+import axios from 'axios'
 
 
 class Question extends Component {
 	// Data
+	state = {
+		question : '',
+		query: ''
+	}
 
 	// Functions
+
+	componentWillMount(){
+		//Construction the endpoint
+		let endpoint = ''
+		let alphabet= ['a','b','c','d','e','f','g','h','i','k','j','y','l','m',
+			'n','o','p', 'r','s','t','u','v','z','w','q']
+
+		let gameTypes = ['end-start']
+		let gameType = gameTypes[Math.floor(Math.random() * gameTypes.length)]
+
+		let x = alphabet[Math.floor(Math.random() * alphabet.length)]
+		let y = alphabet[Math.floor(Math.random() * alphabet.length)]
+		let questionMark = '?'
+		let between = questionMark.repeat(Math.floor(Math.random() * 7))
+		//The final endpoint
+		endpoint = `?sp=${x}?${between}${y}`
+		let query = endpoint.split('=')[1]
+
+		axios.get(`https://api.datamuse.com/words${endpoint}`).then((res) => {
+			this.setState({
+				question : res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+	}
 
 	// Render
 	render() {

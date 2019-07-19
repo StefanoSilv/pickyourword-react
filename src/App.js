@@ -9,23 +9,10 @@ import axios from 'axios'
 
 class App extends Component {
 	// Data
-	state = {
-		user : []
-	}
+
 
 	// Functions
 
-
-	componentWillMount() {
-		axios.get(`${process.env.REACT_APP_API}/api/me`, {headers: {
-			Authorization: `Bearer ${localStorage.getItem('token')}`
-		}}).then( (res) => {
-			console.log('res', res);
-
-		}).catch( (err) => {
-		console.log(err);
-	})
-}
 
 	// Render
 	render() {
