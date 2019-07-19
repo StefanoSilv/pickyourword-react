@@ -5,8 +5,8 @@
 	min-height:80px;
 	border-bottom:1px solid black;
 	height:100px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
 	background-color: white;
 }
 
@@ -21,9 +21,25 @@
 	height:100px;
 }
 
+#points,#level {
+	padding:7px;
+}
+
+#points{
+	font-weight: bold;
+}
+
+#level{
+	font-style: italic;
+}
+
 #trophy{
-	min-height:80px;
-	height:100px;
+	margin-top:10px;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	border: 1px solid black;
+	justify-self: center;
 }
 
 #logged-in > p , #logged-in > span{
