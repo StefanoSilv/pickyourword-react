@@ -31,7 +31,13 @@ class Answer extends Component {
 				Authorization: `Bearer ${localStorage.getItem('token')}`
 			}}
 		).then((res) => {
-			console.log(res.data)
+			console.log('answer', res);
+			let answer: text
+			this.setState({
+				text: answer
+			})
+			console.log('res.data',res.data)
+
 		}).catch((err) => {
 			console.log('err', err)
 		})
