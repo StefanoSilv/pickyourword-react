@@ -7,7 +7,8 @@ class Question extends Component {
 	// Data
 	state = {
 		question : '',
-		query: ''
+		query: '' ,
+		gameType: ''
 	}
 
 	// Functions
@@ -18,21 +19,30 @@ class Question extends Component {
 		let alphabet= ['a','b','c','d','e','f','g','h','i','k','j','y','l','m',
 			'n','o','p', 'r','s','t','u','v','z','w','q']
 
-		let gameTypes = ['end-start']
+		let gameTypes = ['End-start'] //It will become an array of objects
 		let gameType = gameTypes[Math.floor(Math.random() * gameTypes.length)]
 
 		let x = alphabet[Math.floor(Math.random() * alphabet.length)]
 		let y = alphabet[Math.floor(Math.random() * alphabet.length)]
-		let questionMark = '?'
-		let between = questionMark.repeat(Math.floor(Math.random() * 7))
+		let questionMark = '?' //To avoid no question mark, can be avoided after the condition of existence of an answer
+		let question_mark_number = Math.floor(Math.random() * 7)
+		let between = questionMark.repeat(question_mark_number)
 		//The final endpoint
 		endpoint = `?sp=${x}?${between}${y}`
+		//Word in the small box
 		let query = endpoint.split('=')[1]
+		//Question in the big box
+		let question =  `${gameType}. Word that starts with ${x}, ends with ${y}, and has ${question_mark_number + 1} letter in the middle`
+
 
 		axios.get(`https://api.datamuse.com/words${endpoint}`).then((res) => {
 			this.setState({
-				question : res.data
+				query : query
 			})
+			this.setState({
+				question : question
+			})
+			//Send res.data to the data
 		}).catch((err) => {
 			console.log('err', err)
 		})
@@ -42,9 +52,8 @@ class Question extends Component {
 	render() {
 		return (
 			<div>
-				<div id="question-box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-				</div>
-				<div id="word-box">CALIMNANDJSDASJKLALSALSHKA</div>
+				<div id="question-box">{this.state.question}</div>
+				<div id="word-box">{this.state.query}</div>
 			</div>
 		)
 	}
