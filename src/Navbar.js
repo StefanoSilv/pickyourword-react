@@ -9,8 +9,8 @@ class Navbar extends Component {
 	state = {
 		me : {
 			points:0,
-			level:'Guest',
-			trophy: ['Guest']
+			level: 'Guest',
+			trophy: ['']
 		}
 	}
 
@@ -25,19 +25,19 @@ class Navbar extends Component {
 		window.location.href = '/signup'
 	}
 
+
 	//take the info from the logged user
 	componentWillMount() {
-		axios.get(`${process.env.REACT_APP_API}/api/me`, {headers: {
-			Authorization: `Bearer ${localStorage.getItem('token')}`
-		}}).then( (res) => {
-			let user = res.data
-			console.log('res.data in the function' ,res.data);
-			this.setState({me : user})
-			console.log('user', this.state.me);
-		}).catch( (err) => {
-		console.log(err);
-	})
+		this.props.getLoggedUser();
+		this.props.getTrophies();
 }
+
+	componentWillReceiveProps(props){
+		let user = props.me
+		this.setState({
+			me: user
+		})
+	}
 
 	// Render
 	render() {
