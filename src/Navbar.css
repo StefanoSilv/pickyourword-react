@@ -16,12 +16,12 @@
 	height:100px;
 }
 
-#points-level{
+#points-status{
 	min-height:80px;
 	height:100px;
 }
 
-#points , #level , #status {
+#points , #status {
 	padding:2px;
 }
 
@@ -29,7 +29,7 @@
 	font-weight: bold;
 }
 
-#level, #status{
+#status{
 	font-style: italic;
 }
 

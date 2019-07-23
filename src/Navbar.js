@@ -11,7 +11,8 @@ class Navbar extends Component {
 			points:0,
 			level: 'Guest',
 			trophy:''
-		}
+		},
+		trophy: this.props.trophy
 	}
 
 	// Functions
@@ -27,9 +28,14 @@ class Navbar extends Component {
 
 
 	//take the info from the logged user
+
+	selectBackground = (background) =>{
+		return  {backgroundImage: `url('${background}')`}
+	}
 	componentWillMount() {
 		this.props.getLoggedUser();
-		this.props.getTrophies();
+		console.log('state trophy',this.state.trophy);
+		console.log(this.selectBackground(this.state.trophy.pic));
 }
 
 	componentWillReceiveProps(props){
@@ -47,11 +53,11 @@ class Navbar extends Component {
 				<div id="game-logo">Game logo</div>
 				<div id="points-level" >
 					<div id="points">{this.state.me.points}</div>
-					<div id="level">Level: {this.state.me.level}</div>
-					<div id="status">Status: {this.state.me.trophy.toUpperCase()}</div>
+					<div id="status">Status: {this.state.trophy.name.toUpperCase()}</div>
 				</div>
-				<div id="trophy">Last trophy</div>
-				{ this.props.checkAuth() ? <User me={this.state.me} key={this.state.me._id}/> :
+				<div id="trophy" style={this.selectBackground(this.state.trophy.pic)} ></div>
+				{ this.props.checkAuth() ? <User me={this.state.me} key={this.state.me._id}
+				trophy={this.state.trophy} /> :
 					<div id="user-navbar">
 						<div id="logged-in">
 							<small>Do you have an account?</small>

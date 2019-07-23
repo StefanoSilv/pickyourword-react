@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Bottonbar from './Bottonbar'
 import Content from './Content'
 import axios from 'axios'
+import getTrophy from './getTrophy.js'
 
 
 
@@ -15,7 +16,12 @@ class App extends Component {
 		gameType:'',
 		points: 0,
 		streak: 0,
-		endpoint:''
+		endpoint:'',
+		trophy : {
+			name: 'beginner',
+			pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563681086/pickyourword/beginner_level_xscg9p.jpg',
+			number: 0
+		}
 	}
 
 
@@ -87,22 +93,6 @@ class App extends Component {
 })
 }
 
-//Function to get the trophies and their number, in an array
-	getTrophies = () => {
-			axios.get(`${process.env.REACT_APP_API}/api/trophies`, {headers: {
-			Authorization: `Bearer ${localStorage.getItem('token')}`
-		}}).then( (res) => {
-			let trophy = res.data.trophy
-			this.setState({ trophy : trophy })
-		}).catch( (err) => {
-		console.log(err);
-	})
-}
-
-
-//
-
-
 getPoints = (e, answer) => {
 	this.createAnswer(e, answer)
 	let gameType = this.state.gameType
@@ -148,7 +138,7 @@ removePoint = () => {
 			<div id="main-container" className="container-fluid h-100">
 				<Navbar checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				getLoggedUser={this.getLoggedUser} me={this.state.me}
-				getTrophies={this.getTrophies}/>
+				trophy={this.state.trophy}/>
 				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
 				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				query={this.state.query} question={this.state.question}
