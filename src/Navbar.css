@@ -21,15 +21,15 @@
 	height:100px;
 }
 
-#points,#level {
-	padding:7px;
+#points , #level , #status {
+	padding:2px;
 }
 
 #points{
 	font-weight: bold;
 }
 
-#level{
+#level, #status{
 	font-style: italic;
 }
 

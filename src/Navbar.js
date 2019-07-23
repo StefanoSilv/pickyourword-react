@@ -10,7 +10,7 @@ class Navbar extends Component {
 		me : {
 			points:0,
 			level: 'Guest',
-			trophy: ['']
+			trophy:''
 		}
 	}
 
@@ -33,6 +33,7 @@ class Navbar extends Component {
 }
 
 	componentWillReceiveProps(props){
+		this.props.getLoggedUser()
 		let user = props.me
 		this.setState({
 			me: user
@@ -46,7 +47,8 @@ class Navbar extends Component {
 				<div id="game-logo">Game logo</div>
 				<div id="points-level" >
 					<div id="points">{this.state.me.points}</div>
-					<div id="level">{this.state.me.level.toUpperCase()}</div>
+					<div id="level">Level: {this.state.me.level}</div>
+					<div id="status">Status: {this.state.me.trophy.toUpperCase()}</div>
 				</div>
 				<div id="trophy">Last trophy</div>
 				{ this.props.checkAuth() ? <User me={this.state.me} key={this.state.me._id}/> :

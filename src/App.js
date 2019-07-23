@@ -13,13 +13,18 @@ class App extends Component {
 		query:'',
 		question:'',
 		gameType:'',
-		me:{
-			trophy:[]
-		}
+		points: 0,
+		streak: 0,
+		endpoint:''
 	}
 
 
 	// Functions
+	createAnswer = (e, text) => {
+		e.preventDefault()
+			this.getQuestion()
+			console.log('points',this.state.points);
+	}
 
 	getQuestion = () => {
 		//Construction the endpoint
@@ -44,6 +49,7 @@ class App extends Component {
 
 
 		axios.get(`https://api.datamuse.com/words${endpoint}`).then((res) => {
+		if(res.data && res.data.length){
 			this.setState({
 				gameType : gameType
 			})
@@ -55,6 +61,12 @@ class App extends Component {
 			this.setState({
 				question : question
 			})
+			this.setState({
+				endpoint : endpoint
+			})
+		}else{
+			this.getQuestion()
+		}
 			//Send res.data to the data
 		}).catch((err) => {
 			console.log('err', err)
@@ -62,11 +74,13 @@ class App extends Component {
 	}
 
 	//Function to get the logged User
+
 	getLoggedUser = () => {
 		axios.get(`${process.env.REACT_APP_API}/api/me`, {headers: {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res) => {
 		let user = res.data
+		console.log('user', user);
 		this.setState({me : user})
 	}).catch( (err) => {
 	console.log(err);
@@ -78,17 +92,55 @@ class App extends Component {
 			axios.get(`${process.env.REACT_APP_API}/api/trophies`, {headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}).then( (res) => {
-			let trophies = this.state.me.trophy
 			let trophy = res.data.trophy
-			trophies.push(trophy)
-			console.log(trophies);
-			let me = this.state.me
-			this.setState({me : me })
-			console.log(this.state.me);
+			this.setState({ trophy : trophy })
 		}).catch( (err) => {
 		console.log(err);
 	})
 }
+
+
+//
+
+
+getPoints = (e, answer) => {
+	this.createAnswer(e, answer)
+	let gameType = this.state.gameType
+	let streak = this.state.streak
+	let endpoint = this.state.endpoint
+	axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
+	{
+		gameType: gameType,
+		streak: streak,
+		answer: answer,
+		endpoint: endpoint
+	},
+	{headers: {
+		Authorization: `Bearer ${localStorage.getItem('token')}`
+	}}).then( (res) => {
+		console.log('res', res);
+	}).catch((err) => {
+		console.log('err', err)
+	})
+}
+
+removePoint = () => {
+	let points = this.state.points
+	if(points>0){
+		this.setState({
+			points: points - 1
+		})
+	}else{
+		this.setState({
+			points: 0
+		})
+	}
+
+	this.setState({
+		streak : 0
+	})
+}
+
 
 	// Render
 	render() {
@@ -97,8 +149,10 @@ class App extends Component {
 				<Navbar checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				getLoggedUser={this.getLoggedUser} me={this.state.me}
 				getTrophies={this.getTrophies}/>
-				<Content checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
-				query={this.state.query} question={this.state.question}/>
+				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
+				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
+				query={this.state.query} question={this.state.question}
+				text={this.state.text} getPoints={this.getPoints} />
 				<Bottonbar />
 			</div>
 		)

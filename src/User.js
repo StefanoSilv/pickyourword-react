@@ -21,7 +21,6 @@ var x = document.getElementById("user-unordered-list")
 	}
 }
 
-
 	// Render
 	render() {
 		return (
@@ -34,7 +33,7 @@ var x = document.getElementById("user-unordered-list")
 							<li>email: {this.state.me.email}</li>
 							<li>level: {this.state.me.level}</li>
 							<li>points: {this.state.me.points}</li>
-							<li>Trophies: {this.state.me.trohpy}</li>
+							<li>Trophies: {this.state.me.trophy}</li>
 							<li>Subscription date: {this.state.me.iscription_date}</li>
 							<li>Account: {this.state.me.user_type}</li>
 							<li><Logout /></li>

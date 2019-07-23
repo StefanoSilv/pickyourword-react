@@ -6,7 +6,7 @@ import axios from 'axios'
 class Answer extends Component {
 	// Data
 	state = {
-		text : ''
+		text: ''
 	}
 
 	// Functions
@@ -22,30 +22,16 @@ class Answer extends Component {
 		})
 	}
 
-	createAnswer = (e, text) => {
-		e.preventDefault()
-		axios.post(
-			`${process.env.REACT_APP_API}/api/checkAnswer`,
-			{text: text},
-			{headers: {
-				Authorization: `Bearer ${localStorage.getItem('token')}`
-			}}
-		).then((res) => {
-			let answer: text
-			this.setState({
-				text: answer
-			})
-			this.props.getQuestion()
-		}).catch((err) => {
-			console.log('err', err)
-		})
-	}
+
+
 
 	// Render
 	render() {
 		return (
 			<form onSubmit={(e) => {
-					this.createAnswer(e, this.state.text); this.clearAnswer()}}
+					this.props.createAnswer(e, this.state.text);
+					this.props.getPoints(e, this.state.text); this.clearAnswer()
+					}}
 					 id="answer-box">
 				<div className="input-group mb-3">
 					<input onChange={(e) => this.changeText(e)} value={this.state.text}

@@ -12,8 +12,6 @@ class Content extends Component {
 	// Data
 		state = {
 			mode: false,
-			query: '',
-			question: ''
 		}
 
 	// Functions
@@ -32,23 +30,18 @@ class Content extends Component {
 	}
 
 
-	componentWillReceiveProps(props){
-		this.setState({
-			query: this.props.query,
-		})
-		this.setState({
-			question: this.props.question,
-		})
-	}
-
 	// Render
 	render() {
 		return (
 			<div id="content" className="row">
 				{this.state.mode ? (<div id="content" className="row">
-					<Question getQuestion={this.props.getQuestion}
+					<Question
+					getQuestion={this.props.getQuestion}
 					query={this.props.query} question={this.props.question} />
-					<Answer getQuestion={this.props.getQuestion} />
+					<Answer
+					createAnswer={this.props.createAnswer} getLoggedUser={this.props.getLoggedUser}
+					getPoints={this.props.getPoints} getQuestion={this.props.getQuestion}
+					 />
 					<div id="button-part">
 						<EscButton escMode={this.escMode} />
 						<SkipButton getQuestion={this.props.getQuestion} />
