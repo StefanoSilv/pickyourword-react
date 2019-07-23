@@ -52,7 +52,7 @@ class Navbar extends Component {
 			<div id="navbar" className="row">
 				<div id="game-logo">Game logo</div>
 				<div id="points-level" >
-					<div id="points">{this.state.me.points}</div>
+					<div id="points">Points: {this.state.me.points}</div>
 					<div id="status">Status: {this.state.trophy.name.toUpperCase()}</div>
 				</div>
 				<div id="trophy" style={this.selectBackground(this.state.trophy.pic)} ></div>

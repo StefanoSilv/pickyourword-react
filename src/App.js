@@ -14,9 +14,13 @@ class App extends Component {
 		query:'',
 		question:'',
 		gameType:'',
-		points: 0,
 		streak: 0,
 		endpoint:'',
+		me : {
+			points:0,
+			level: 'Guest',
+			trophy:''
+		},
 		trophy : {
 			name: 'beginner',
 			pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563681086/pickyourword/beginner_level_xscg9p.jpg',
@@ -29,7 +33,6 @@ class App extends Component {
 	createAnswer = (e, text) => {
 		e.preventDefault()
 			this.getQuestion()
-			console.log('points',this.state.points);
 	}
 
 	getQuestion = () => {
@@ -86,7 +89,6 @@ class App extends Component {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res) => {
 		let user = res.data
-		console.log('user', user);
 		this.setState({me : user})
 	}).catch( (err) => {
 	console.log(err);
@@ -108,15 +110,23 @@ getPoints = (e, answer) => {
 	{headers: {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res) => {
+		console.log('hello');
 		console.log('res', res);
+		this.getTrophy()
 	}).catch((err) => {
 		console.log('err', err)
 	})
 }
 
+streakToZero = () => {
+	this.setState({
+		streak : 0
+	})
+}
+
 removePoint = () => {
-	let points = this.state.points
-	if(points>0){
+	let points = this.state.me.points
+	if(points > 0){
 		this.setState({
 			points: points - 1
 		})
@@ -125,11 +135,10 @@ removePoint = () => {
 			points: 0
 		})
 	}
-
-	this.setState({
-		streak : 0
-	})
+	this.streakToZero()
 }
+
+
 
 
 	// Render

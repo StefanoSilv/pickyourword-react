@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Signup from './Signup'
 import App from './App'
 import Login from './Login'
+import Pay from './Pay'
 import dotenv from 'dotenv'
 import axios from 'axios'
 
@@ -34,6 +35,7 @@ class Routes extends Component {
 				<Switch>
 					<Route path="/login" component={() => <Login auth={this.auth} />} />
 					<Route path="/signup" component={() => <Signup auth={this.auth} />} />
+					<Route path="/pay" component={() => <Pay />} />
 					<Route path="/" component={() => <App checkAuth={this.checkAuth}  /> } />
 					)} />
 				</Switch>

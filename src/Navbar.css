@@ -22,7 +22,7 @@
 }
 
 #points , #status {
-	padding:2px;
+	padding:10px;
 }
 
 #points{
@@ -40,6 +40,9 @@
 	border-radius: 50%;
 	border: 1px solid black;
 	justify-self: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
 }
 
 #logged-in > p , #logged-in > span{
