@@ -43,7 +43,7 @@ class Content extends Component {
 					getPoints={this.props.getPoints} getQuestion={this.props.getQuestion}
 					 />
 					<div id="button-part">
-						<EscButton escMode={this.escMode} />
+						<EscButton escMode={this.escMode} streakToZero={this.props.streakToZero} />
 						<SkipButton getQuestion={this.props.getQuestion} />
 					</div>
 				</div>) : ( <StartGameButton gameMode={this.gameMode} />) }
