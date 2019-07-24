@@ -110,9 +110,11 @@ getPoints = (e, answer) => {
 	{headers: {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res) => {
-		console.log('hello');
-		console.log('res', res);
-		this.getTrophy()
+		console.log('res', res.data);
+		this.setState({
+			me : res.data
+		})
+		// this.getTrophy()
 	}).catch((err) => {
 		console.log('err', err)
 	})

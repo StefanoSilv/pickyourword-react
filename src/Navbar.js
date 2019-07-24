@@ -7,11 +7,7 @@ import axios from 'axios'
 class Navbar extends Component {
 	// Data
 	state = {
-		me : {
-			points:0,
-			level: 'Guest',
-			trophy:''
-		},
+		me : this.props.me,
 		trophy: this.props.trophy
 	}
 
@@ -34,12 +30,9 @@ class Navbar extends Component {
 	}
 	componentWillMount() {
 		this.props.getLoggedUser();
-		console.log('state trophy',this.state.trophy);
-		console.log(this.selectBackground(this.state.trophy.pic));
 }
 
 	componentWillReceiveProps(props){
-		this.props.getLoggedUser()
 		let user = props.me
 		this.setState({
 			me: user
