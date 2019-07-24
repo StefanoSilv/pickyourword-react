@@ -1,5 +1,5 @@
-const getTrophies = () => {
-	let points = this.state.points
+const getTrophy = (user_point) => {
+	let points = user_point
 	let trophy = {
 		name: 'beginner',
 		pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563681086/pickyourword/beginner_level_xscg9p.jpg',
@@ -126,10 +126,9 @@ const getTrophies = () => {
 		}
 	}
 
-	this.setState({
-		trophy
-	})
+	return trophy
+
 
 }
 
-module.exports = getTrophies
+module.exports = getTrophy

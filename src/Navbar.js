@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Navbar.css';
 import User from './User'
-import axios from 'axios'
+import getTrophy from './getTrophy.js'
 
 
 class Navbar extends Component {
@@ -30,12 +30,15 @@ class Navbar extends Component {
 	}
 	componentWillMount() {
 		this.props.getLoggedUser();
+		console.log(this.props.me);
 }
 
 	componentWillReceiveProps(props){
-		let user = props.me
 		this.setState({
-			me: user
+			me: props.me
+		})
+		this.setState({
+			trophy: props.trophy
 		})
 	}
 

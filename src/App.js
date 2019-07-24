@@ -18,8 +18,6 @@ class App extends Component {
 		endpoint:'',
 		me : {
 			points:0,
-			level: 'Guest',
-			trophy:''
 		},
 		trophy : {
 			name: 'beginner',
@@ -90,6 +88,7 @@ class App extends Component {
 	}}).then( (res) => {
 		let user = res.data
 		this.setState({me : user})
+		this.setState({trophy: getTrophy(this.state.me.points)})
 	}).catch( (err) => {
 	console.log(err);
 })
@@ -110,11 +109,12 @@ getPoints = (e, answer) => {
 	{headers: {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res) => {
-		console.log('res', res.data);
 		this.setState({
 			me : res.data
 		})
-		// this.getTrophy()
+		this.setState({
+			trophy: getTrophy(this.state.me.points)
+		})
 	}).catch((err) => {
 		console.log('err', err)
 	})
@@ -153,7 +153,8 @@ removePoint = () => {
 				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
 				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				query={this.state.query} question={this.state.question}
-				text={this.state.text} getPoints={this.getPoints} />
+				text={this.state.text} getPoints={this.getPoints}
+				streakToZero={this.streakToZero} removePoint={this.removePoint} />
 				<Bottonbar />
 			</div>
 		)
