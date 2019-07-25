@@ -118,7 +118,7 @@ const getTrophy = (user_point) => {
 			number: 16
 		}
 	}
-	if(points > 39999 && points < 50000 ){
+	if(points > 39999 ){
 		trophy = {
 			name: 'supreme emperator',
 			pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563682601/pickyourword/supreme_emperator_houzvd.png',

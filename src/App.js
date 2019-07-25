@@ -14,7 +14,6 @@ class App extends Component {
 		query:'',
 		question:'',
 		gameType:'',
-		streak: 0,
 		endpoint:'',
 		me : {
 			points:0,
@@ -86,8 +85,7 @@ class App extends Component {
 		axios.get(`${process.env.REACT_APP_API}/api/me`, {headers: {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res) => {
-		let user = res.data
-		this.setState({me : user})
+		this.setState({me : res.data})
 		this.setState({trophy: getTrophy(this.state.me.points)})
 	}).catch( (err) => {
 	console.log(err);
@@ -97,12 +95,10 @@ class App extends Component {
 getPoints = (e, answer) => {
 	this.createAnswer(e, answer)
 	let gameType = this.state.gameType
-	let streak = this.state.streak
 	let endpoint = this.state.endpoint
 	axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
 	{
 		gameType: gameType,
-		streak: streak,
 		answer: answer,
 		endpoint: endpoint
 	},
@@ -121,23 +117,29 @@ getPoints = (e, answer) => {
 }
 
 streakToZero = () => {
-	this.setState({
-		streak : 0
+	console.log('Hey');
+	console.log('streak initial', this.state.me.streak);
+	axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, '', {headers: {
+		Authorization: `Bearer ${localStorage.getItem('token')}`
+	}}).then( (res)=> {
+		console.log('res',res.data.streak);
+		this.setState({me : res.data})
+	}).catch( (err) => {
+		console.log(err);
 	})
 }
 
 removePoint = () => {
-	let points = this.state.me.points
-	if(points > 0){
+	axios.post(`${process.env.REACT_APP_API}/api/removePoint`, '', {headers: {
+		Authorization: `Bearer ${localStorage.getItem('token')}`
+	}}).then( (res)=> {
+		this.setState({me : res.data})
 		this.setState({
-			points: points - 1
+			trophy: getTrophy(this.state.me.points)
 		})
-	}else{
-		this.setState({
-			points: 0
-		})
-	}
-	this.streakToZero()
+	}).catch( (err) => {
+		console.log(err);
+	})
 }
 
 

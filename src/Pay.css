@@ -1,0 +1,26 @@
+body, html {
+	height: 100vh;
+	background-color: #16A8E0;
+}
+
+.card-deck{
+	width: 300px;
+	height: 500px;
+	position:absolute;
+	margin-top: 5%;
+	margin-left: calc(50% - 150px);
+}
+
+.card-footer{
+	text-align: center;
+}
+
+.text-muted {
+	font-weight: bold;
+	color: black;
+}
+
+.card-body{
+	text-align: center;
+	background-color: #FEFEFE;
+}

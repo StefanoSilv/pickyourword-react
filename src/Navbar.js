@@ -30,7 +30,6 @@ class Navbar extends Component {
 	}
 	componentWillMount() {
 		this.props.getLoggedUser();
-		console.log(this.props.me);
 }
 
 	componentWillReceiveProps(props){

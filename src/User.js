@@ -22,6 +22,12 @@ var x = document.getElementById("user-unordered-list")
 	}
 }
 
+componentWillReceiveProps(props){
+	this.setState({
+		trophy: props.trophy
+	})
+}
+
 	// Render
 	render() {
 		return (
