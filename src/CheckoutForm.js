@@ -1,23 +1,42 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
+import axios from 'axios'
 
 class CheckoutForm extends Component {
-  constructor(props) {
-    super(props);
-    this.submit = this.submit.bind(this);
-  }
+	constructor(props) {
+  super(props);
+  this.state = {complete: false};
+}
 
-  async submit(ev) {
-    // User clicked submit
-  }
+pay = () => {
+	  let stripe_token = this.props.stripe.createToken({name: "Name"})
+
+			console.log('token', stripe_token);
+			axios.post(`${process.env.REACT_APP_API}/api/pay`, {
+						token: stripe_token,
+					}, {headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`}}).then((res) => {
+									console.log('res', res)
+								}).catch((err) => {
+									console.log('err', err)
+								})
+	}
+
+
+
+
 
   render() {
+		if (this.state.complete) return <h1>Purchase Complete</h1>;
     return (
-      <div className="checkout">
-        <p>Would you like to complete the purchase?</p>
+			<div id="payment-form-container">
+      <div id="payment-form-container" className="checkout">
+			<div id="payment-form">
         <CardElement />
-        <button onClick={this.submit}>Send</button>
+        <button onClick={() => this.pay()}>Pay 2.99€</button>
       </div>
+			</div>
+			</div>
     );
   }
 }
