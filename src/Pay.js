@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Pay.css'
+import axios from 'axios'
 
 
 class Pay extends Component {
@@ -9,11 +10,36 @@ class Pay extends Component {
 	}
 
 	// Functions
-	pay = () => {
+	payMode = () => {
 		this.setState({
 			payMode: true
 		})
 };
+
+pay = () => {
+	const stripe = Stripe('pk_test_KRt533arRYcFwAVwrxiioj8P00OFFyoDRx')
+	const elements = stripe.elements()
+	const card = elements.create('card')
+	card.mount = ('#card')
+	// let payment = document.getElementById('payment')
+
+	stripe.createToken(card).then((res) => {
+			console.log('res', res.token.id)
+			axios.post(`${process.env.REACT_APP_API}/api/pay`, {
+				token: res.token.id,
+				amount: 2.99
+			}).then((res) => {
+				console.log('res', res)
+				// Insert a success message
+				// payment.innerHTML = `<span class="success">Thank you!</span>`
+			}).catch((err) => {
+				console.log('err', err)
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
+
+}
 
 
 
@@ -31,7 +57,7 @@ class Pay extends Component {
 		    <input type="text" className="form-control" id="cardNumber" />
 		  </div>
   <div className="form-group">
-    <label for="cardNumber">Card number</label>
+    <label id="card" for="cardNumber">Card number</label>
     <input type="text" className="form-control" id="cardNumber" />
   </div>
   <div className="form-row">
@@ -55,7 +81,7 @@ class Pay extends Component {
       </label>
     </div>
   </div>
-  <button id="pay-button" type="submit" className="btn btn-primary">Pay 2.99€</button>
+  <button id="pay-button" type="button" className="btn btn-primary">Pay 2.99€</button>
 </form>
 </div>)
 			:
@@ -69,7 +95,7 @@ class Pay extends Component {
 					<p>Just one payment. Play forever.</p>
 					</div>
 					</div>
-					<div className="card-footer" type="submit" onClick={() => this.pay()} >
+					<div className="card-footer" type="submit" onClick={() => this.payMode()} >
 					<small className="text-muted">Get premium for 2.99€</small>
 					</div>
 					</div>
