@@ -22,6 +22,10 @@ var x = document.getElementById("user-unordered-list")
 	}
 }
 
+redirectPremium = () => {
+	window.location.href = '/pay'
+}
+
 componentWillReceiveProps(props){
 	this.setState({
 		trophy: props.trophy
@@ -33,7 +37,8 @@ componentWillReceiveProps(props){
 		return (
 			<div id="user-navbar">
 				<div id="logged-in">
-					<button id="get-premium" type="button" className="btn btn-outline-warning">Get Premium</button>
+					<button id="get-premium" type="button"
+					onClick={ () =>this.redirectPremium()} className="btn btn-outline-warning">Get Premium</button>
 					<p id="user-account" onClick={() => this.dropdownMenu()}>Your account</p>
 						<ul id="user-unordered-list">
 							<li id="nickname-navbar">Nickname: {this.state.me.name}</li>

@@ -117,12 +117,9 @@ getPoints = (e, answer) => {
 }
 
 streakToZero = () => {
-	console.log('Hey');
-	console.log('streak initial', this.state.me.streak);
 	axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, '', {headers: {
 		Authorization: `Bearer ${localStorage.getItem('token')}`
 	}}).then( (res)=> {
-		console.log('res',res.data.streak);
 		this.setState({me : res.data})
 	}).catch( (err) => {
 		console.log(err);

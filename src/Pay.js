@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import {render} from 'react-dom';
-import {StripeProvider} from 'react-stripe-elements';
-import MyStoreCheckout from './MyStoreCheckout';
 import './Pay.css'
 
 
@@ -16,12 +13,8 @@ class Pay extends Component {
 		this.setState({
 			payMode: true
 		})
-		console.log(this.state.payMode);
 };
 
-componentWillMount(){
-	console.log(this.state.payMode);
-}
 
 
 	// Render
@@ -30,9 +23,41 @@ componentWillMount(){
 			<div>
 			{
 				this.state.payMode ?
-					( <StripeProvider apiKey="pk_test_KRt533arRYcFwAVwrxiioj8P00OFFyoDRx">
-				  <MyStoreCheckout />
-				</StripeProvider>)
+				(
+					<div id="payment-form-container">
+		<form id="payment-form">
+			<div className="form-group">
+		    <label for="Name">Name on card</label>
+		    <input type="text" className="form-control" id="cardNumber" />
+		  </div>
+  <div className="form-group">
+    <label for="cardNumber">Card number</label>
+    <input type="text" className="form-control" id="cardNumber" />
+  </div>
+  <div className="form-row">
+    <div className="form-group col-md-6">
+      <label for="Expiration">Expiration</label>
+      <input type="text" className="form-control" id="expiration" placeholder="MM/YY" />
+    </div>
+    <div className="form-group col-md-2">
+
+    </div>
+    <div className="form-group col-md-3">
+      <label for="inputCVC">CVC</label>
+      <input id="cvc" type="text" className="form-control" id="inputCVC" />
+    </div>
+  </div>
+  <div className="form-group">
+    <div className="form-check">
+      <input className="form-check-input" type="checkbox" id="gridCheck" />
+      <label className="form-check-label" for="gridCheck">
+        Confirm your data
+      </label>
+    </div>
+  </div>
+  <button id="pay-button" type="submit" className="btn btn-primary">Pay 2.99€</button>
+</form>
+</div>)
 			:
 			(	<div className="card-deck">
 					<div className="card">

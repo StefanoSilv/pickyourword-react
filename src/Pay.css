@@ -1,26 +1,20 @@
-body, html {
-	height: 100vh;
-	background-color: #16A8E0;
-}
-
-.card-deck{
-	width: 300px;
-	height: 500px;
-	position:absolute;
-	margin-top: 5%;
-	margin-left: calc(50% - 150px);
-}
-
-.card-footer{
-	text-align: center;
-}
-
-.text-muted {
+#pay-button{
+	width: 100%;
 	font-weight: bold;
-	color: black;
+	font-style: italic;
+
 }
 
-.card-body{
-	text-align: center;
-	background-color: #FEFEFE;
+#payment-form-container{
+	width:100%;
+	height:100%;
+	background-color: white;
+}
+
+#cvc{
+	max-width: 100px;
+}
+
+#expiration{
+	max-width: 100px;
 }
