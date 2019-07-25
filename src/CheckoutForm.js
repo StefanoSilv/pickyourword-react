@@ -6,21 +6,34 @@ class CheckoutForm extends Component {
 	constructor(props) {
   super(props);
   this.state = {complete: false};
+	this.submit = this.submit.bind(this);
 }
 
-pay = () => {
-	  let stripe_token = this.props.stripe.createToken({name: "Name"})
+// async pay () {
+// 	  let {stripe_token} = await this.props.stripe.createToken({name: "Name"})
+//
+// 			console.log('token', stripe_token);
+// 			axios.post(`${process.env.REACT_APP_API}/api/pay`, {
+// 						token: stripe_token.id,
+// 					}, {headers: {
+// 					Authorization: `Bearer ${localStorage.getItem('token')}`}}).then((res) => {
+// 									console.log('res', res)
+// 								}).catch((err) => {
+// 									console.log('err', err)
+// 								})
+// 	}
 
-			console.log('token', stripe_token);
-			axios.post(`${process.env.REACT_APP_API}/api/pay`, {
-						token: stripe_token,
-					}, {headers: {
-					Authorization: `Bearer ${localStorage.getItem('token')}`}}).then((res) => {
-									console.log('res', res)
-								}).catch((err) => {
-									console.log('err', err)
-								})
-	}
+async submit(ev) {
+  let {token} = await this.props.stripe.createToken({name: "Name"});
+	console.log(token);
+  let response = await fetch(`${process.env.REACT_APP_API}/api/pay`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}`},
+    body: token.id
+  });
+
+  if (response.ok) this.setState({complete: true});
+}
 
 
 
@@ -33,7 +46,7 @@ pay = () => {
       <div id="payment-form-container" className="checkout">
 			<div id="payment-form">
         <CardElement />
-        <button onClick={() => this.pay()}>Pay 2.99€</button>
+        <button onClick={this.submit}>Pay 2.99€</button>
       </div>
 			</div>
 			</div>
