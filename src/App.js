@@ -116,22 +116,22 @@ getPoints = (e, answer) => {
 			console.log('err', err)
 		})
 	}else{
-		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
-		{
-			gameType: gameType,
-			answer: answer,
-			endpoint: endpoint,
-			user: this.state.me._id
-		}
-		).then( (res) => {
-			this.setState({
-				me : res.data
-			})
-		}).catch((err) => {
-			console.log('err', err)
-		})
+		console.log('WOoow');
+		// axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
+		// {
+		// 	gameType: gameType,
+		// 	answer: answer,
+		// 	endpoint: endpoint,
+		// 	user: this.state.me._id
+		// }
+		// ).then( (res) => {
+		// 	this.setState({
+		// 		me : res.data
+		// 	})
+		// }).catch((err) => {
+		// 	console.log('err', err)
+		// })
 	}
-	console.log('streak after 1 correct answer',this.state.me.streak);
 }
 
 streakToZero = () => {
@@ -143,8 +143,9 @@ streakToZero = () => {
 		}).catch( (err) => {
 			console.log(err);
 		})
+	}else{
+		console.log('Hello');
 	}//If there is no token to be inserted here
-	console.log('streak after esc button',this.state.me.streak);
 }
 
 removePoint = () => {
@@ -152,6 +153,16 @@ removePoint = () => {
 		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, '', {headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}).then( (res)=> {
+			this.setState({me : res.data})
+			this.setState({
+				trophy: getTrophy(this.state.me.points)
+			})
+		}).catch( (err) => {
+			console.log(err);
+		})
+	}else{
+		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, {guest: this.state.me}).then( (res)=> {
+			console.log('res.data',res.data);
 			this.setState({me : res.data})
 			this.setState({
 				trophy: getTrophy(this.state.me.points)
