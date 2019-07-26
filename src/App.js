@@ -116,21 +116,22 @@ getPoints = (e, answer) => {
 			console.log('err', err)
 		})
 	}else{
-		console.log('WOoow');
-		// axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
-		// {
-		// 	gameType: gameType,
-		// 	answer: answer,
-		// 	endpoint: endpoint,
-		// 	user: this.state.me._id
-		// }
-		// ).then( (res) => {
-		// 	this.setState({
-		// 		me : res.data
-		// 	})
-		// }).catch((err) => {
-		// 	console.log('err', err)
-		// })
+		console.log('Answer');
+		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
+		{
+			gameType: gameType,
+			answer: answer,
+			endpoint: endpoint,
+			guest: this.state.me
+		}
+		).then( (res) => {
+			console.log('res.data',res);
+			this.setState({
+				me : res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
+		})
 	}
 }
 
@@ -145,7 +146,7 @@ streakToZero = () => {
 		})
 	}else{
 			axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, {guest: this.state.me}).then( (res)=> {
-				console.log('res.data',res.data);
+				console.log('streak res.data',res.data);
 				this.setState({me : res.data})
 			}).catch( (err) => {
 				console.log(err);
@@ -156,6 +157,7 @@ streakToZero = () => {
 
 removePoint = () => {
 	if(localStorage.getItem('token') && localStorage.getItem('token').length){
+		console.log('hello');
 		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, '', {headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}).then( (res)=> {
@@ -168,7 +170,8 @@ removePoint = () => {
 		})
 	}else{
 		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, {guest: this.state.me}).then( (res)=> {
-			console.log('res.data',res.data);
+			console.log('Skip button');
+			console.log('res.data skip',res.data);
 			this.setState({me : res.data})
 			this.setState({
 				trophy: getTrophy(this.state.me.points)
