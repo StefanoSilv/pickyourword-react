@@ -96,47 +96,70 @@ getPoints = (e, answer) => {
 	this.createAnswer(e, answer)
 	let gameType = this.state.gameType
 	let endpoint = this.state.endpoint
-	axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
-	{
-		gameType: gameType,
-		answer: answer,
-		endpoint: endpoint
-	},
-	{headers: {
-		Authorization: `Bearer ${localStorage.getItem('token')}`
-	}}).then( (res) => {
-		this.setState({
-			me : res.data
+	if(localStorage.getItem('token') && localStorage.getItem('token').length){
+		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
+		{
+			gameType: gameType,
+			answer: answer,
+			endpoint: endpoint
+		},
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}}).then( (res) => {
+			this.setState({
+				me : res.data
+			})
+			this.setState({
+				trophy: getTrophy(this.state.me.points)
+			})
+		}).catch((err) => {
+			console.log('err', err)
 		})
-		this.setState({
-			trophy: getTrophy(this.state.me.points)
+	}else{
+		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
+		{
+			gameType: gameType,
+			answer: answer,
+			endpoint: endpoint,
+			user: this.state.me._id
+		}
+		).then( (res) => {
+			this.setState({
+				me : res.data
+			})
+		}).catch((err) => {
+			console.log('err', err)
 		})
-	}).catch((err) => {
-		console.log('err', err)
-	})
+	}
+	console.log('streak after 1 correct answer',this.state.me.streak);
 }
 
 streakToZero = () => {
-	axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, '', {headers: {
-		Authorization: `Bearer ${localStorage.getItem('token')}`
-	}}).then( (res)=> {
-		this.setState({me : res.data})
-	}).catch( (err) => {
-		console.log(err);
-	})
+	if(localStorage.getItem('token') && localStorage.getItem('token').length){
+		axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, '', {headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}}).then( (res)=> {
+			this.setState({me : res.data})
+		}).catch( (err) => {
+			console.log(err);
+		})
+	}//If there is no token to be inserted here
+	console.log('streak after esc button',this.state.me.streak);
 }
 
 removePoint = () => {
-	axios.post(`${process.env.REACT_APP_API}/api/removePoint`, '', {headers: {
-		Authorization: `Bearer ${localStorage.getItem('token')}`
-	}}).then( (res)=> {
-		this.setState({me : res.data})
-		this.setState({
-			trophy: getTrophy(this.state.me.points)
+	if(localStorage.getItem('token') && localStorage.getItem('token').length){
+		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, '', {headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}}).then( (res)=> {
+			this.setState({me : res.data})
+			this.setState({
+				trophy: getTrophy(this.state.me.points)
+			})
+		}).catch( (err) => {
+			console.log(err);
 		})
-	}).catch( (err) => {
-		console.log(err);
-	})
+	}
 }
 
 
