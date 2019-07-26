@@ -144,9 +144,15 @@ streakToZero = () => {
 			console.log(err);
 		})
 	}else{
-		console.log('Hello');
-	}//If there is no token to be inserted here
-}
+			axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, {guest: this.state.me}).then( (res)=> {
+				console.log('res.data',res.data);
+				this.setState({me : res.data})
+			}).catch( (err) => {
+				console.log(err);
+			})
+		}
+	}
+
 
 removePoint = () => {
 	if(localStorage.getItem('token') && localStorage.getItem('token').length){
