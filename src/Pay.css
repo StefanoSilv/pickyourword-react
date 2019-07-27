@@ -30,11 +30,7 @@
 	background-color: #FEFEFE;
 }
 
-#payment-form{
-	width: 300px;
-	margin: 0 auto;
-	padding: 20px;
-}
+
 
 #pay-button{
 	width: 100%;
@@ -43,13 +39,6 @@
 
 }
 
-#payment-form-container{
-	width:100%;
-	height:100vh;
-	background-image: -webkit-linear-gradient(left, #16A8E0, #31BDD4);
-	background-image: -o-linear-gradient(left, #16A8E0, #31BDD4);
-	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
-}
 
 #cvc{
 	max-width: 100px;

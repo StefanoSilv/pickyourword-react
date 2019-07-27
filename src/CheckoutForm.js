@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import axios from 'axios'
+import './CheckoutForm.css'
 
 class CheckoutForm extends Component {
 	constructor(props) {
@@ -9,19 +10,6 @@ class CheckoutForm extends Component {
 	this.submit = this.submit.bind(this);
 }
 
-// async pay () {
-// 	  let {stripe_token} = await this.props.stripe.createToken({name: "Name"})
-//
-// 			console.log('token', stripe_token);
-// 			axios.post(`${process.env.REACT_APP_API}/api/pay`, {
-// 						token: stripe_token.id,
-// 					}, {headers: {
-// 					Authorization: `Bearer ${localStorage.getItem('token')}`}}).then((res) => {
-// 									console.log('res', res)
-// 								}).catch((err) => {
-// 									console.log('err', err)
-// 								})
-// 	}
 
 async submit(ev) {
   let {token} = await this.props.stripe.createToken({name: "Name"});
@@ -46,7 +34,7 @@ async submit(ev) {
       <div id="payment-form-container" className="checkout">
 			<div id="payment-form">
         <CardElement />
-        <button onClick={this.submit}>Pay 2.99€</button>
+        <button id="pay-button-checkout" onClick={this.submit}>Pay 2.99€</button>
       </div>
 			</div>
 			</div>
