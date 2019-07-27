@@ -1,4 +1,10 @@
+.card-title{
+	font-weight: bold;
+}
 
+.card-text{
+	font-style: italic;
+}
 
 .card-deck{
 	width: 300px;
@@ -10,11 +16,13 @@
 
 .card-footer{
 	text-align: center;
+	color:#16A8E0;
+	font-size: 20px;
 }
 
 .text-muted {
 	font-weight: bold;
-	color: black;
+	color: #16A8E0 !important;
 }
 
 .card-body{
@@ -38,7 +46,9 @@
 #payment-form-container{
 	width:100%;
 	height:100vh;
-	background-color: #F1F1F1;
+	background-image: -webkit-linear-gradient(left, #16A8E0, #31BDD4);
+	background-image: -o-linear-gradient(left, #16A8E0, #31BDD4);
+	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
 }
 
 #cvc{
@@ -47,4 +57,11 @@
 
 #expiration{
 	max-width: 100px;
+}
+
+#pay-mode-wrapper{
+	width:100vw;
+	height:100vh;
+	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
+	color: #16A8E0
 }
