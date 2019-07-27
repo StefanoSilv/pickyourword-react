@@ -7,8 +7,12 @@
 
 #get-premium{
 	margin-top: 5px;
-	text-decoration: underline;
 	font-style: italic;
+	background-color: white;
+	color: #31BDD4;
+	border: 0px;
+	padding: 10px;
+	border-radius: 15px;
 }
 
 #user-account{
@@ -35,5 +39,4 @@
 	z-index:4;
 	padding:10px;
 	font-style: italic;
-	border: 1px solid black;
 }

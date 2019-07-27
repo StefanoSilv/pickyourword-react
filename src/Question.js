@@ -26,7 +26,7 @@ class Question extends Component {
 		return (
 			<div>
 				<div id="question-box">{this.state.question}</div>
-				<div id="word-box">{this.state.query}</div>
+				<div id="word-box">{this.state.query.split('?').join(' _ ')}</div>
 			</div>
 		)
 	}

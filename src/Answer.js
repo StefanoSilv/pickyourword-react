@@ -42,6 +42,7 @@ class Answer extends Component {
 					</div>
 				</div>
 			</form>
+
 		)
 	}
 }

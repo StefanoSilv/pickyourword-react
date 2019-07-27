@@ -13,11 +13,8 @@
 	/* border: 6px solid green; */
 	border-radius: 50px;
 	color: #7D7D7D;
-	min-width: 500px;
 	margin-top: 15px;
 	width: 100%;
-	max-width: 800px;
-	min-width: 300px;
 	box-shadow: 15px 17px 38px 12px rgba(0,0,0,0.26);
 }
 
@@ -31,9 +28,9 @@
 }
 
 #answer-square > input{
-	height: 80px;
+	height: 60px;
 	color: #7D7D7D;
-	font-size: 30px;
+	font-size: 24px;
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
 }
