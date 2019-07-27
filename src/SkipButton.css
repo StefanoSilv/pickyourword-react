@@ -1,9 +1,4 @@
 #skip-button{
-	width: 80px;
+	width: 100px;
 	margin: 50px auto;
-	color: #F99F1B;
-	background-color: white;
-	border-radius: 20px;
-	border: 0px;
-	box-shadow: 15px 17px 38px 2px rgba(0,0,0,0.26);
 }

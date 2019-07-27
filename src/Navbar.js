@@ -45,13 +45,12 @@ class Navbar extends Component {
 	render() {
 		return (
 			<div id="navbar" className="row">
-				<div id="game-logo">
-				<div id="trophy" style={this.selectBackground(this.state.trophy.pic)} ></div>
-				</div>
+				<div id="game-logo">Game logo</div>
 				<div id="points-level" >
 					<div id="points">Points: {this.state.me.points}</div>
 					<div id="status">Status: {this.state.trophy.name.toUpperCase()}</div>
 				</div>
+				<div id="trophy" style={this.selectBackground(this.state.trophy.pic)} ></div>
 				{ this.props.checkAuth() ? <User me={this.state.me} key={this.state.me._id}
 				trophy={this.state.trophy} /> :
 					<div id="user-navbar">
