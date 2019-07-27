@@ -12,7 +12,7 @@ class Bottonbar extends Component {
 		return (
 			<div id="bottonbar" className="row align-items-center">
 				<div id="info" className="col-6">
-					<p>App developed by Stefano Silvestrini</p>
+					<p id="developer">App developed by Stefano Silvestrini</p>
 					<p>Rules</p>
 				</div>
 				<div id="sharing" className="col-6">Sharing button</div>

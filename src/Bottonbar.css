@@ -2,6 +2,7 @@
 	height:60px;
 	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
 	border-top: 1px solid black;
+	color: white;
 }
 
 #sharing{
@@ -11,4 +12,9 @@
 #info{
 	line-height: 12px;
 	padding-left: 50px;
+}
+
+#developer{
+	padding-top: 10px;
+	font-style: italic;
 }
