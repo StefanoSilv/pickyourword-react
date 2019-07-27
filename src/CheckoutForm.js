@@ -23,12 +23,17 @@ async submit(ev) {
   if (response.ok) this.setState({complete: true});
 }
 
-
+homepageRedirect = () => {
+	window.location.href = '/'
+}
 
 
 
   render() {
-		if (this.state.complete) return <h1>Purchase Complete</h1>;
+		if (this.state.complete) return <div id="purchase-completed">
+		<h1>Purchase Complete</h1>
+		<p onClick={()=> this.homepageRedirect()} id="homepage_redirect"> Come back to play </p>
+		</div>;
     return (
 			<div id="payment-form-container">
       <div id="payment-form-container" className="checkout">
