@@ -1,7 +1,8 @@
 #button-part{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	justify-items:center;
+	justify-self: end;
+	grid-column-gap: 20px;
 }
 
 #content{
