@@ -7,7 +7,7 @@
 	height:100px;
 	padding-left: 15px;
 	padding-right: 15px;
-	background-color: white;
+	background-color: #16A8E0;
 }
 
 #game-logo{
@@ -43,6 +43,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100%;
+	background-color: white;
 }
 
 #logged-in > p , #logged-in > span{

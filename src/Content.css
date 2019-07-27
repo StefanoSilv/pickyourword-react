@@ -5,8 +5,9 @@
 }
 
 #content{
-	height: calc(100vh - 100px - 100px);
+	height: calc(100vh - 140px - 60px);
 	display: grid;
 	grid-template-rows: 4fr 4fr 2fr;
 	position: relative;
+
 }
