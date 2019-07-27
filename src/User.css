@@ -1,9 +1,8 @@
 #user-navbar{
-	border-left:1px solid black;
 }
 
 #logged-in{
-	width:calc(100% + 20px);
+
 }
 
 #get-premium{
@@ -23,7 +22,7 @@
 	display: none;
 	list-style: none;
 	z-index: 3;
-	background-color: white;
+	background-color: #F1F1F1;
 	margin-bottom: 0;
 	position: relative;
 }

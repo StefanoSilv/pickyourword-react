@@ -13,8 +13,7 @@ class Bottonbar extends Component {
 			<div id="bottonbar" className="row align-items-center">
 				<div id="info" className="col-6">
 					<p>App developed by Stefano Silvestrini</p>
-					<p>Tortuga Coders</p>
-					<p>Koh Samui, Thailand</p>
+					<p>Rules</p>
 				</div>
 				<div id="sharing" className="col-6">Sharing button</div>
 			</div>
