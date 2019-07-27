@@ -24,7 +24,7 @@ class Pay extends Component {
 	// Render
 	render() {
 		return (
-			<div>
+			<div id="pay-mode-wrapper">
 			{
 				this.state.payMode ?
 				(
