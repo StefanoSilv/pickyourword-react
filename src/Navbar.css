@@ -3,11 +3,11 @@
 	grid-template-columns: 1fr 2fr 1fr;
 	text-align: center;
 	min-height:80px;
-	border-bottom:1px solid black;
 	height:140px;
 	padding-left: 15px;
 	padding-right: 15px;
 	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
+	box-shadow: 6px 14px 19px 4px rgba(0,0,0,0.27);
 }
 
 #game-logo{

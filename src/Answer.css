@@ -1,20 +1,24 @@
 #confirm-button > .btn-outline-secondary{
-	color: green;
+	color: white;
 	font-weight: bold;
+	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
+	border: solid 0px #16A8E0;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
 }
 
 #answer-box{
 	align-self: flex-end;
 	background-color: #F1F1F1;
-	border: 6px solid green;
-	margin: 0 auto;
-	border-radius: 10px;
-	color: green;
+	/* border: 6px solid green; */
+	border-radius: 50px;
+	color: #7D7D7D;
 	min-width: 500px;
 	margin-top: 15px;
-	width: 80%;
+	width: 100%;
 	max-width: 800px;
 	min-width: 300px;
+	box-shadow: 15px 17px 38px 12px rgba(0,0,0,0.26);
 }
 
 #answer-box > .input-group {
@@ -23,7 +27,13 @@
 }
 
 #answer-box > .input-group > .form-control {
-	border-right: 6px solid green;
-	color:black;
 	font-weight: bold;
+}
+
+#answer-square > input{
+	height: 80px;
+	color: #7D7D7D;
+	font-size: 20px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
 }

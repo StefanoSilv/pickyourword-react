@@ -1,7 +1,6 @@
 #bottonbar{
 	height:60px;
 	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
-	border-top: 1px solid black;
 	color: white;
 }
 
@@ -10,11 +9,11 @@
 }
 
 #info{
-	line-height: 12px;
+	line-height: 10px;
 	padding-left: 50px;
 }
 
 #developer{
-	padding-top: 10px;
+	padding-top: 7px;
 	font-style: italic;
 }

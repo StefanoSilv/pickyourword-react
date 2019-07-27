@@ -33,7 +33,7 @@ class Answer extends Component {
 					this.props.getPoints(e, this.state.text); this.clearAnswer()
 					}}
 					 id="answer-box">
-				<div className="input-group mb-3">
+				<div id="answer-square" className="input-group mb-3">
 					<input onChange={(e) => this.changeText(e)} value={this.state.text}
 					 type="text" className="form-control"
 					 placeholder="Pick your word" />
