@@ -8,7 +8,8 @@ class Navbar extends Component {
 	// Data
 	state = {
 		me : this.props.me,
-		trophy: this.props.trophy
+		trophy: this.props.trophy,
+		level: this.props.level
 	}
 
 	// Functions
@@ -39,6 +40,22 @@ class Navbar extends Component {
 		this.setState({
 			trophy: props.trophy
 		})
+		this.setState({
+			level: props.level
+		})
+	}
+
+
+	showLevel = () => {
+		if(this.state.level == 1){
+				return 'Easy  '
+		}
+		if(this.state.level == 2){
+				return 'Medium'
+		}
+		if(this.state.level == 3){
+				return 'Difficult'
+		}
 	}
 
 	// Render
@@ -49,6 +66,10 @@ class Navbar extends Component {
 				<div id="points-level" >
 					<div id="points">Points: {this.state.me.points}</div>
 					<div id="status">Status: {this.state.trophy.name.toUpperCase()}</div>
+					<small>Level</small><input type="range" min="1" max="3"
+					value={this.state.level} className="slider" id="myRange"
+					onChange={(e) => {this.props.changeLevel(e)}} />
+					<p>{this.showLevel()}</p>
 				</div>
 				<div id="trophy" style={this.selectBackground(this.state.trophy.pic)} ></div>
 				{ this.props.checkAuth() ? <User me={this.state.me} key={this.state.me._id}

@@ -22,7 +22,8 @@ class App extends Component {
 			name: 'beginner',
 			pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563681086/pickyourword/beginner_level_xscg9p.jpg',
 			number: 0
-		}
+		},
+		level:1
 	}
 
 
@@ -44,7 +45,7 @@ class App extends Component {
 		let x = alphabet[Math.floor(Math.random() * alphabet.length)]
 		let y = alphabet[Math.floor(Math.random() * alphabet.length)]
 		let questionMark = '?' //To avoid no question mark, can be avoided after the condition of existence of an answer
-		let question_mark_number = Math.floor(Math.random() * 7)
+		let question_mark_number = Math.floor(Math.random() * (this.state.level*2))
 		let between = questionMark.repeat(question_mark_number)
 		//The final endpoint
 		endpoint = `?sp=${x}?${between}${y}`
@@ -116,7 +117,6 @@ getPoints = (e, answer) => {
 			console.log('err', err)
 		})
 	}else{
-		console.log('Answer');
 		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
 		{
 			gameType: gameType,
@@ -125,7 +125,6 @@ getPoints = (e, answer) => {
 			guest: this.state.me
 		}
 		).then( (res) => {
-			console.log('res.data',res);
 			this.setState({
 				me : res.data
 			})
@@ -146,7 +145,6 @@ streakToZero = () => {
 		})
 	}else{
 			axios.post(`${process.env.REACT_APP_API}/api/streakToZero`, {guest: this.state.me}).then( (res)=> {
-				console.log('streak res.data',res.data);
 				this.setState({me : res.data})
 			}).catch( (err) => {
 				console.log(err);
@@ -157,7 +155,6 @@ streakToZero = () => {
 
 removePoint = () => {
 	if(localStorage.getItem('token') && localStorage.getItem('token').length){
-		console.log('hello');
 		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, '', {headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}).then( (res)=> {
@@ -170,8 +167,6 @@ removePoint = () => {
 		})
 	}else{
 		axios.post(`${process.env.REACT_APP_API}/api/removePoint`, {guest: this.state.me}).then( (res)=> {
-			console.log('Skip button');
-			console.log('res.data skip',res.data);
 			this.setState({me : res.data})
 			this.setState({
 				trophy: getTrophy(this.state.me.points)
@@ -182,6 +177,11 @@ removePoint = () => {
 	}
 }
 
+changeLevel = (e) => {
+	this.setState({
+		level: e.target.value
+	})
+}
 
 
 
@@ -191,7 +191,8 @@ removePoint = () => {
 			<div id="main-container" className="container-fluid h-100">
 				<Navbar checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				getLoggedUser={this.getLoggedUser} me={this.state.me}
-				trophy={this.state.trophy}/>
+				trophy={this.state.trophy} level={this.state.level}
+				changeLevel={this.changeLevel}/>
 				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
 				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				query={this.state.query} question={this.state.question}
