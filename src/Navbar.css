@@ -21,14 +21,11 @@
 	height:100px;
 }
 
-<<<<<<< HEAD
+
 #points , #status {
 	padding:10px;
-=======
-#points , #status{
 	padding: 10px;
 	color: #F1F1F1;
->>>>>>> test
 }
 
 #points{

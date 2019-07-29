@@ -39,14 +39,12 @@
 
 }
 
-<<<<<<< HEAD
 #payment-form-container{
 	width:100%;
 	height:100vh;
 	background-color: white;
 }
-=======
->>>>>>> Restyling
+
 
 #cvc{
 	max-width: 100px;
@@ -59,9 +57,7 @@
 #pay-mode-wrapper{
 	width:100vw;
 	height:100vh;
-<<<<<<< HEAD
-=======
 	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
 	color: #16A8E0
->>>>>>> Restyling
+
 }
