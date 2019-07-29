@@ -17,10 +17,9 @@
 #points-level{
 }
 
-#points , #status {
-	padding: 15px;
+#points , #status{
+	padding: 10px;
 	color: #F1F1F1;
-
 }
 
 #points{
@@ -29,6 +28,19 @@
 
 #status{
 	font-style: italic;
+}
+
+#points-level >small{
+	font-size: 14px;
+	color: #F1F1F1;
+	padding-right: 10px;
+}
+
+#points-level >p{
+	font-size: 16px;
+	color: #F1F1F1;
+	padding-left: 40px;
+	margin-bottom: 0px;
 }
 
 #trophy{
