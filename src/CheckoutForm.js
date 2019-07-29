@@ -13,15 +13,15 @@ class CheckoutForm extends Component {
 
 async submit(ev) {
   let {token} = await this.props.stripe.createToken({name: "Name"});
-	console.log(token);
-  let response = await fetch(`${process.env.REACT_APP_API}/api/pay`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${localStorage.getItem('token')}`},
-    body: token.id
-  });
-
-  if (response.ok) this.setState({complete: true});
+  axios.post(`${process.env.REACT_APP_API}/api/pay`, {token}, {headers: {
+		Authorization: `Bearer ${localStorage.getItem('token')}`
+	}}).then( (res) =>{
+		  if (res.status===200){this.setState({complete: true})};
+	}).catch( (err) => {
+		console.log(err);
+	})
 }
+
 
 homepageRedirect = () => {
 	window.location.href = '/'

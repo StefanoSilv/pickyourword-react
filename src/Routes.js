@@ -11,6 +11,7 @@ import axios from 'axios'
 class Routes extends Component {
 	//state
 
+
 	//Functions
 	//Functions
 	//A function which returns true if there is a token in the local storage
@@ -27,6 +28,7 @@ class Routes extends Component {
 		window.location.href = '/'
 		}
 	}
+
 
 
 	render() {

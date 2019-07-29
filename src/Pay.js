@@ -9,7 +9,7 @@ import './Pay.css'
 class Pay extends Component {
 	// Data
 	state = {
-		payMode: false
+		payMode: false,
 	}
 
 	// Functions

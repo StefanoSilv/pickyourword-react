@@ -32,13 +32,25 @@ componentWillReceiveProps(props){
 	})
 }
 
+premiumUser = () => {
+	if (this.state.me.user_type==='premium'){
+		return true
+	}
+}
+
 	// Render
 	render() {
 		return (
 			<div id="user-navbar">
 				<div id="logged-in">
+				{
+					this.premiumUser() ?
+					<div>Premium account</div>
+					:
 					<button id="get-premium" type="button"
-					onClick={ () =>this.redirectPremium()} className="btn btn-outline-warning">Get Premium</button>
+					onClick={ () =>this.redirectPremium()} className="btn btn-outline-warning">
+					Get Premium</button>
+				}
 					<p id="user-account" onClick={() => this.dropdownMenu()}>Your account</p>
 						<ul id="user-unordered-list">
 							<li id="nickname-navbar">Nickname: {this.state.me.name}</li>
