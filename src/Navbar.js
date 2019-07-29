@@ -58,7 +58,6 @@ class Navbar extends Component {
 		if(this.state.level == 3){
 				return 'Difficult'
 		}
-		console.log(this.showLevel());
 	}
 
 	// Render
