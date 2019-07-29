@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './User.css';
 import Logout from './Logout'
+import moment from 'moment'
 
 
 
@@ -32,6 +33,13 @@ componentWillReceiveProps(props){
 	})
 }
 
+dateFormatter = () => {
+	let iscription_date = this.state.me.iscription_date
+	iscription_date = moment(iscription_date).format('DD MMM YYYY')
+	return iscription_date
+}
+
+
 premiumUser = () => {
 	if (this.state.me.user_type==='premium'){
 		return true
@@ -58,7 +66,7 @@ premiumUser = () => {
 							<li>status: {this.state.trophy.name}</li>
 							<li>points: {this.state.me.points}</li>
 							<li>Trophies: {this.state.trophy.number}</li>
-							<li>Subscription date: {this.state.me.iscription_date}</li>
+							<li>Subscription date: {this.dateFormatter()}</li>
 							<li>Account: {this.state.me.user_type}</li>
 							<li><Logout /></li>
 						</ul>

@@ -15,7 +15,11 @@ class Bottonbar extends Component {
 					<p id="developer">App developed by Stefano Silvestrini</p>
 					<p>Rules</p>
 				</div>
-				<div id="sharing" className="col-6">Sharing button</div>
+				<div id="sharing" className="col-6"><div className="fb-share-button"
+				data-href="https://pickyourword.herokuapp.com"
+				data-layout="button_count" data-size="small">
+				<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+				className="fb-xfbml-parse-ignore">แชร์</a></div></div>
 			</div>
 		)
 	}
