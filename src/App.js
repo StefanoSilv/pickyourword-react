@@ -22,7 +22,8 @@ class App extends Component {
 			name: 'beginner',
 			pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563681086/pickyourword/beginner_level_xscg9p.jpg',
 			number: 0
-		}
+		},
+		level:1
 	}
 
 
@@ -44,7 +45,7 @@ class App extends Component {
 		let x = alphabet[Math.floor(Math.random() * alphabet.length)]
 		let y = alphabet[Math.floor(Math.random() * alphabet.length)]
 		let questionMark = '?' //To avoid no question mark, can be avoided after the condition of existence of an answer
-		let question_mark_number = Math.floor(Math.random() * 7)
+		let question_mark_number = Math.floor(Math.random() * (this.state.level*2))
 		let between = questionMark.repeat(question_mark_number)
 		//The final endpoint
 		endpoint = `?sp=${x}?${between}${y}`
@@ -176,6 +177,11 @@ removePoint = () => {
 	}
 }
 
+changeLevel = (e) => {
+	this.setState({
+		level: e.target.value
+	})
+}
 
 
 
@@ -185,7 +191,8 @@ removePoint = () => {
 			<div id="main-container" className="container-fluid h-100">
 				<Navbar checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				getLoggedUser={this.getLoggedUser} me={this.state.me}
-				trophy={this.state.trophy}/>
+				trophy={this.state.trophy} level={this.state.level}
+				changeLevel={this.changeLevel}/>
 				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
 				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				query={this.state.query} question={this.state.question}
