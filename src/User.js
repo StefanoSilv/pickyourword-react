@@ -23,6 +23,14 @@ var x = document.getElementById("user-unordered-list")
 	}
 }
 
+stylePremium = () => {
+var x = document.getElementById("user-type-navbar")
+	if (this.state.me.user_type=='premium') {
+	x.className += "premium-navbar-style";
+	}
+}
+
+
 redirectPremium = () => {
 	window.location.href = '/pay'
 }
@@ -31,6 +39,7 @@ componentWillReceiveProps(props){
 	this.setState({
 		trophy: props.trophy
 	})
+	this.stylePremium()
 }
 
 dateFormatter = () => {
@@ -53,7 +62,10 @@ premiumUser = () => {
 				<div id="logged-in">
 				{
 					this.premiumUser() ?
-					<div>Premium account</div>
+					<div id="premium-user-block">
+					<i className="fas fa-star"></i>
+					<span> Premium </span>
+					<i className="fas fa-star"></i></div>
 					:
 					<button id="get-premium" type="button"
 					onClick={ () =>this.redirectPremium()} className="btn btn-outline-warning">
@@ -67,7 +79,7 @@ premiumUser = () => {
 							<li>points: {this.state.me.points}</li>
 							<li>Trophies: {this.state.trophy.number}</li>
 							<li>Subscription date: {this.dateFormatter()}</li>
-							<li>Account: {this.state.me.user_type}</li>
+							<li>Account: <span id="user-type-navbar">{this.state.me.user_type}</span></li>
 							<li><Logout /></li>
 						</ul>
 				</div>

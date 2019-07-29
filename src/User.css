@@ -18,17 +18,18 @@
 
 #user-account{
 	cursor:pointer;
-	margin-top: 10px;
+	margin-top: 20px;
 	padding:10px;
 	text-decoration: underline;
 	color: #F1F1F1;
+	margin-bottom: 5px;
 }
 
 #logged-in > ul{
 	display: none;
 	list-style: none;
 	z-index: 3;
-	background-image: linear-gradient(to right, #02B9D8,#31BDD4 );
+	background-image: linear-gradient(to right, #02B9D8,#30bcd5);
 	margin-bottom: 0;
 	position: relative;
 	color: #F1F1F1;
@@ -44,4 +45,20 @@
 	z-index:4;
 	padding:10px;
 	font-style: italic;
+}
+
+i{
+	display: inline-block;
+	color: gold;
+}
+
+#premium-user-block > span{
+	color: #F1F1F1;
+	display: inline;
+}
+
+.premium-navbar-style{
+	color: gold !important;
+	font-weight: bold !important;
+	text-transform: capitalize !important;
 }
