@@ -1,29 +1,23 @@
 #navbar{
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 2fr 1fr;
 	text-align: center;
 	min-height:80px;
-	border-bottom:1px solid black;
-	height:100px;
+	height:140px;
 	padding-left: 15px;
 	padding-right: 15px;
-	background-color: #16A8E0;
+	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
+	box-shadow: 6px 14px 19px 4px rgba(0,0,0,0.27);
 }
 
 #game-logo{
-	border-right:1px solid black;
-	min-height:80px;
-	height:100px;
+
 }
 
-#points-status{
-	min-height:80px;
-	height:100px;
+#points-level{
 }
 
-
-#points , #status {
-	padding:10px;
+#points , #status{
 	padding: 10px;
 	color: #F1F1F1;
 }
@@ -50,16 +44,19 @@
 }
 
 #trophy{
-	margin-top:10px;
-	height: 80px;
-	width: 80px;
+	margin: 20px auto;
+	height: 100px;
+	width: 100px;
 	border-radius: 50%;
 	border: 1px solid black;
-	justify-self: center;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100%;
 	background-color: white;
+}
+#logged-in{
+	/* color: white; */
+	padding: 15px;
 }
 
 #logged-in > p , #logged-in > span{
