@@ -5,12 +5,9 @@
 
 #answer-box{
 	align-self: flex-end;
-	background-color: white;
-	border: 6px solid green;
-	margin: 0 auto;
-	border-radius: 10px;
-	color: green;
-	min-width: 500px;
+	background-color: #F1F1F1;
+	border-radius: 50px;
+	color: #7D7D7D;
 	margin-top: 15px;
 	width: 80%;
 	max-width: 800px;
@@ -26,4 +23,22 @@
 	border-right: 6px solid green;
 	color:black;
 	font-weight: bold;
+}
+
+#answer-square > input{
+	height: 60px;
+	color: #7D7D7D;
+	font-size: 24px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
+.correct-answer{
+	box-shadow: 21px 26px 50px 0px green !important;
+	border: 10px solid green !important;
+}
+
+.wrong-answer{
+	border: 10px solid red !important;
+	box-shadow: 21px 26px 50px 0px red !important;
 }

@@ -14,16 +14,18 @@
 
 #user-account{
 	cursor:pointer;
-	margin-top: 5px;
-	padding:5px;
+	margin-top: 20px;
+	padding:10px;
 	text-decoration: underline;
+	color: #F1F1F1;
+	margin-bottom: 5px;
 }
 
 #logged-in > ul{
 	display: none;
 	list-style: none;
 	z-index: 3;
-	background-color: white;
+	background-image: linear-gradient(to right, #02B9D8,#30bcd5);
 	margin-bottom: 0;
 	position: relative;
 }
@@ -37,4 +39,20 @@
 	padding:10px;
 	font-style: italic;
 	border: 1px solid black;
+}
+
+i{
+	display: inline-block;
+	color: gold;
+}
+
+#premium-user-block > span{
+	color: #F1F1F1;
+	display: inline;
+}
+
+.premium-navbar-style{
+	color: gold !important;
+	font-weight: bold !important;
+	text-transform: capitalize !important;
 }

@@ -1,3 +1,31 @@
 #main-container{
 	display: grid;
 }
+
+#message-answer-correct{
+	position:absolute;
+	top:45%;
+	z-index:99;
+	left:70%;
+	font-weight: 900;
+	color:green;
+	display: none;
+}
+
+#message-answer-wrong{
+	position:absolute;
+	top:45%;
+	z-index:99;
+	left:70%;
+	font-weight: 900;
+	color:red;
+	display:none;
+}
+
+.message-answer-wrong{
+	display: block !important;
+}
+
+.message-answer-correct{
+	display: block !important;
+}

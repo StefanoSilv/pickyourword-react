@@ -30,7 +30,6 @@ class App extends Component {
 	// Functions
 	createAnswer = (e, text) => {
 		e.preventDefault()
-			this.getQuestion()
 	}
 
 	getQuestion = () => {
@@ -97,6 +96,7 @@ getPoints = (e, answer) => {
 	this.createAnswer(e, answer)
 	let gameType = this.state.gameType
 	let endpoint = this.state.endpoint
+	let points_before = this.state.me.points
 	if(localStorage.getItem('token') && localStorage.getItem('token').length){
 		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
 		{
@@ -107,6 +107,12 @@ getPoints = (e, answer) => {
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}).then( (res) => {
+			this.getQuestion()
+			if(res.data.points > points_before){
+				this.correctAnswer()
+			}else{
+				this.wrongAnswer()
+			}
 			this.setState({
 				me : res.data
 			})
@@ -114,6 +120,7 @@ getPoints = (e, answer) => {
 				trophy: getTrophy(this.state.me.points)
 			})
 		}).catch((err) => {
+			this.getQuestion()
 			console.log('err', err)
 		})
 	}else{
@@ -183,6 +190,23 @@ changeLevel = (e) => {
 	})
 }
 
+correctAnswer = () => {
+	console.log('function correct answer');
+ 	let x = document.getElementById("message-answer-correct")
+	x.className += "message-answer-correct"
+	setTimeout(() => {
+		x.classList.remove("message-answer-correct")
+	}, 1000)
+}
+
+wrongAnswer = () => {
+	console.log('function wrong answer');
+  let x = document.getElementById("message-answer-wrong")
+	x.classList.add("message-answer-wrong")
+	setTimeout(() => {
+		x.classList.remove("message-answer-wrong")
+	}, 1000)
+}
 
 
 	// Render
@@ -193,6 +217,8 @@ changeLevel = (e) => {
 				getLoggedUser={this.getLoggedUser} me={this.state.me}
 				trophy={this.state.trophy} level={this.state.level}
 				changeLevel={this.changeLevel}/>
+				<h1 id="message-answer-correct">Correct!</h1>
+				<h1 id="message-answer-wrong">Try again!</h1>
 				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
 				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				query={this.state.query} question={this.state.question}
