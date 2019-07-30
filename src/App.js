@@ -132,6 +132,12 @@ getPoints = (e, answer) => {
 			guest: this.state.me
 		}
 		).then( (res) => {
+			this.getQuestion()
+			if(res.data.points > points_before){
+				this.correctAnswer()
+			}else{
+				this.wrongAnswer()
+			}
 			this.setState({
 				me : res.data
 			})
@@ -191,20 +197,24 @@ changeLevel = (e) => {
 }
 
 correctAnswer = () => {
-	console.log('function correct answer');
  	let x = document.getElementById("message-answer-correct")
+	let y = document.getElementById("answer-box")
 	x.className += "message-answer-correct"
+	y.className += "correct-answer"
 	setTimeout(() => {
 		x.classList.remove("message-answer-correct")
+		y.classList.remove("correct-answer")
 	}, 1000)
 }
 
 wrongAnswer = () => {
-	console.log('function wrong answer');
   let x = document.getElementById("message-answer-wrong")
+	let y = document.getElementById("answer-box")
+	y.className += "wrong-answer"
 	x.classList.add("message-answer-wrong")
 	setTimeout(() => {
 		x.classList.remove("message-answer-wrong")
+		y.classList.remove("wrong-answer")
 	}, 1000)
 }
 
