@@ -1,15 +1,19 @@
 #user-navbar{
-	border-left:1px solid black;
 }
 
 #logged-in{
-	width:calc(100% + 20px);
+
 }
 
 #get-premium{
 	margin-top: 5px;
-	text-decoration: underline;
 	font-style: italic;
+	background-color: white;
+	color: #31BDD4;
+	border: 0px;
+	padding: 10px;
+	border-radius: 15px;
+	box-shadow: 15px 17px 38px 2px rgba(0,0,0,0.26);
 }
 
 #user-account{
@@ -28,6 +32,9 @@
 	background-image: linear-gradient(to right, #02B9D8,#30bcd5);
 	margin-bottom: 0;
 	position: relative;
+	color: #F1F1F1;
+	box-shadow: 12px 27px 13px 2px rgba(0,0,0,0.16);
+	border-radius: 10px;
 }
 
 .show{
@@ -38,7 +45,6 @@
 	z-index:4;
 	padding:10px;
 	font-style: italic;
-	border: 1px solid black;
 }
 
 i{
