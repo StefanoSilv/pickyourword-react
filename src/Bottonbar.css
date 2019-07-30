@@ -1,7 +1,7 @@
 #bottonbar{
-	height:100px;
-	background-color: #16A8E0;
-	border-top: 1px solid black;
+	height:60px;
+	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
+	color: white;
 }
 
 #sharing{
@@ -9,6 +9,11 @@
 }
 
 #info{
-	line-height: 12px;
+	line-height: 10px;
 	padding-left: 50px;
+}
+
+#developer{
+	padding-top: 7px;
+	font-style: italic;
 }
