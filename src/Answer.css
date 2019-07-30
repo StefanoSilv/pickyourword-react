@@ -10,7 +10,6 @@
 #answer-box{
 	align-self: flex-end;
 	background-color: #F1F1F1;
-	/* border: 6px solid green; */
 	border-radius: 50px;
 	color: #7D7D7D;
 	margin-top: 15px;
@@ -33,4 +32,14 @@
 	font-size: 24px;
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
+}
+
+.correct-answer{
+	box-shadow: 21px 26px 50px 0px green !important;
+	border: 10px solid green !important;
+}
+
+.wrong-answer{
+	border: 10px solid red !important;
+	box-shadow: 21px 26px 50px 0px red !important;
 }
