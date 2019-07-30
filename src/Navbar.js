@@ -70,7 +70,7 @@ class Navbar extends Component {
 					<div id="status">Status: {this.state.trophy.name.toUpperCase()}</div>
 					<small>Level</small><input type="range" min="1" max="3"
 					value={this.state.level} className="slider" id="myRange"
-					onChange={(e) => {this.props.changeLevel(e)}} />
+					onChange={(e) => {this.props.changeLevel(e); this.props.getQuestion()}} />
 					<p>{this.showLevel()}</p>
 				</div>
 				{ this.props.checkAuth() ? <User me={this.state.me} key={this.state.me._id}
