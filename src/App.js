@@ -51,7 +51,7 @@ class App extends Component {
 		//Word in the small box
 		let query = endpoint.split('=')[1]
 		//Question in the big box
-		let question =  `${gameType}. Word that starts with ${x}, ends with ${y}, and has ${question_mark_number + 1} letter in the middle`
+		let question =  `${gameType}. Word that starts with ${x}, ends with ${y}, and has ${question_mark_number + 1} letter(s) in the middle`
 
 
 		axios.get(`https://api.datamuse.com/words${endpoint}`).then((res) => {
