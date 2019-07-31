@@ -23,3 +23,30 @@
 	margin-top: 5px;
 	font-weight: 900;
 }
+
+
+.loader {
+  border-top: 12px solid #16A8E0;
+	border-bottom: 12px solid #16A8E0;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+	position:absolute;
+	top:25px;
+	left: calc(50% - 50px);
+	display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.displayOn{
+	display: block !important;
+}
+
+.displayOff{
+	display: none !important;
+}

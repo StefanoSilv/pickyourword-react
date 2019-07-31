@@ -95,6 +95,7 @@ class App extends Component {
 
 getPoints = (e, answer) => {
 	this.createAnswer(e, answer)
+	this.loaderOn()
 	let gameType = this.state.gameType
 	let endpoint = this.state.endpoint
 	let points_before = this.state.me.points
@@ -112,6 +113,7 @@ getPoints = (e, answer) => {
 				document.getElementById("content").innerHTML = "<h1>You finished your rounds.</h1> <h1>Get premium to continue, it is just 2.99€ forever!</h1>"
 			}else{
 				this.getQuestion()
+				this.loaderOff()
 				if(res.data.points > points_before){
 					this.correctAnswer()
 				}else{
@@ -141,6 +143,7 @@ getPoints = (e, answer) => {
 				document.getElementById("content").innerHTML = "<h1>You finished your rounds.</h1> <h1>Sign-up to continue, it is free!</h1>"
 			}else{
 				this.getQuestion()
+				this.loaderOff()
 				if(res.data.points > points_before){
 					this.correctAnswer()
 				}else{
@@ -240,6 +243,26 @@ rulesMode = () => {
 		})
 	}
 }
+
+//To show the loader
+	loaderOn = () => {
+		let x = document.getElementById("loader")
+		let y = document.getElementById("question-box")
+		let z = document.getElementById('word-box')
+		x.classList.add("displayOn")
+		y.classList.add("displayOff")
+		z.classList.add("displayOff")
+		}
+//To remove the loader
+	loaderOff = () => {
+		let x = document.getElementById("loader")
+		let y = document.getElementById("question-box")
+		let z = document.getElementById('word-box')
+		x.classList.remove("displayOn")
+		y.classList.remove("displayOff")
+		z.classList.remove("displayOff")
+	}
+
 
 
 	// Render
