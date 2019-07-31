@@ -25,9 +25,11 @@ var x = document.getElementById("user-unordered-list")
 
 stylePremium = () => {
 var x = document.getElementById("user-type-navbar")
-	if (this.state.me.user_type=='premium') { //Aggiungere la condizione che la navbar non deve gia avere quella classe
-	x.className += "premium-navbar-style";
+ if(!x.classList.contains("premium-navbar-style")){
+	if (this.state.me.user_type=='premium') {
+		x.className += "premium-navbar-style";
 	}
+ }
 }
 
 
