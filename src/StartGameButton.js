@@ -7,9 +7,11 @@ class StartGameButton extends Component {
 
 	// Functions
 	removeDropdownMenu = () => {
-	var x = document.getElementById("user-unordered-list")
-		if (x.classList.contains("show")) {
-		x.className = x.className.replace("show", "")
+		if(localStorage.getItem('token') && localStorage.getItem('token').length){
+			var x = document.getElementById("user-unordered-list")
+			if (x.classList.contains("show")) {
+				x.className = x.className.replace("show", "")
+			}
 		}
 	}
 

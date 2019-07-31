@@ -124,7 +124,7 @@ getPoints = (e, answer) => {
 			this.getQuestion()
 			console.log('err', err)
 		})
-	}else{
+	}else{ //for not logged user
 		axios.post(`${process.env.REACT_APP_API}/api/checkAnswer`,
 		{
 			gameType: gameType,
@@ -133,15 +133,19 @@ getPoints = (e, answer) => {
 			guest: this.state.me
 		}
 		).then( (res) => {
-			this.getQuestion()
-			if(res.data.points > points_before){
-				this.correctAnswer()
+			if(res.data.success==false){
+				document.getElementById("content").innerHTML = "<h1>You finished your rounds.</h1> <h1>Sign-up to continue, it is free!</h1>"
 			}else{
-				this.wrongAnswer()
+				this.getQuestion()
+				if(res.data.points > points_before){
+					this.correctAnswer()
+				}else{
+					this.wrongAnswer()
+				}
+				this.setState({
+					me : res.data
+				})
 			}
-			this.setState({
-				me : res.data
-			})
 		}).catch((err) => {
 			console.log('err', err)
 		})
