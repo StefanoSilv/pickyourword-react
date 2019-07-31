@@ -35,7 +35,8 @@ class Signup extends Component {
 				localStorage.setItem('token', res.data.token)
 				this.props.auth()
 			} else  {
-				document.getElementById('error_message').innerHTML='The name or email already exists'
+				console.log(res);
+				document.getElementById('error_message').innerHTML=`${res.data}`
 			}
 
 		}).catch( (err) => {
@@ -87,8 +88,8 @@ class Signup extends Component {
 						<input onClick={ (e) => this.showPassword(e) } type="checkbox" className="form-check-input" id="exampleCheck1" />
 						<label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
 					</div>
-					<small id="error_message"></small>
 					<button type="submit" className="btn btn-primary">Submit</button>
+					<small id="error_message"></small>
 				</form>
 			</div>
 		)
