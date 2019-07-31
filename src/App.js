@@ -23,7 +23,8 @@ class App extends Component {
 			pic:'https://res.cloudinary.com/do8qdtgy8/image/upload/v1563681086/pickyourword/beginner_level_xscg9p.jpg',
 			number: 0
 		},
-		level:1
+		level:1,
+		rules: false
 	}
 
 
@@ -218,6 +219,20 @@ wrongAnswer = () => {
 	}, 1000)
 }
 
+//Change the content and show the rules
+
+rulesMode = () => {
+	if(this.state.rules==false){
+		this.setState({
+			rules: true
+		})
+	}else{
+		this.setState({
+			rules: true
+		})
+	}
+}
+
 
 	// Render
 	render() {
@@ -234,7 +249,7 @@ wrongAnswer = () => {
 				query={this.state.query} question={this.state.question}
 				text={this.state.text} getPoints={this.getPoints}
 				streakToZero={this.streakToZero} removePoint={this.removePoint} />
-				<Bottonbar />
+				<Bottonbar rulesMode={this.rulesMode}/>
 			</div>
 		)
 	}

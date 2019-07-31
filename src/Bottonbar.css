@@ -17,3 +17,7 @@
 	padding-top: 7px;
 	font-style: italic;
 }
+
+#rules{
+	cursor: pointer;
+}

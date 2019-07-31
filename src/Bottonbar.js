@@ -13,7 +13,7 @@ class Bottonbar extends Component {
 			<div id="bottonbar" className="row align-items-center">
 				<div id="info" className="col-6">
 					<p id="developer">App developed by Stefano Silvestrini</p>
-					<p>Rules</p>
+					<p id="rules" onClick={() => this.props.rulesMode()}>Rules</p>
 				</div>
 				<div id="sharing" className="col-6"><div className="fb-share-button"
 				data-href="https://pickyourword.herokuapp.com"
