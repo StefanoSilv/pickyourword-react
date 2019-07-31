@@ -108,18 +108,22 @@ getPoints = (e, answer) => {
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}).then( (res) => {
-			this.getQuestion()
-			if(res.data.points > points_before){
-				this.correctAnswer()
+			if(res.data.success==false){
+				document.getElementById("content").innerHTML = "<h1>You finished your rounds.</h1> <h1>Get premium to continue, it is just 2.99€ forever!</h1>"
 			}else{
-				this.wrongAnswer()
+				this.getQuestion()
+				if(res.data.points > points_before){
+					this.correctAnswer()
+				}else{
+					this.wrongAnswer()
+				}
+				this.setState({
+					me : res.data
+				})
+				this.setState({
+					trophy: getTrophy(this.state.me.points)
+				})
 			}
-			this.setState({
-				me : res.data
-			})
-			this.setState({
-				trophy: getTrophy(this.state.me.points)
-			})
 		}).catch((err) => {
 			this.getQuestion()
 			console.log('err', err)
