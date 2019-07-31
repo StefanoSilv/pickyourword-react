@@ -228,7 +228,7 @@ rulesMode = () => {
 		})
 	}else{
 		this.setState({
-			rules: true
+			rules: false
 		})
 	}
 }
@@ -244,11 +244,24 @@ rulesMode = () => {
 				changeLevel={this.changeLevel}/>
 				<h1 id="message-answer-correct">Correct!</h1>
 				<h1 id="message-answer-wrong">Try again!</h1>
+				{ this.state.rules ?
+					<div id="rules-square">
+						<h2>Rules</h2><span onClick={() => this.rulesMode()}>Come back to play</span>
+						<p>One must pick a word which fit the request. More than one word can be correct. Just pick yours!</p>
+						<p>One scores points differently according to the correct answers given in a row. (Eg. The first correct answer values 2 points, the fifth one values 10 points.)</p>
+						<p>If one skips a question, a point is lost, such as the streak. Sorry!</p>
+						<p>There are three difficulty levels. Choose the one which challenges you the most.</p>
+						<p>You can play up to 10 rounds without signing up. Good news: you can sign up in two click!</p>
+						<p>You can play up to 1000 rounds with a basic account. Get premium if you want more.</p>
+						<p>There are 17 levels till the Supreme Emperor status of the pick your word universe, according to the points accumulated. Every level is a trophy. Time to climb in the ranking…</p>
+						<p>Have fun!</p>
+					</div>
+					:
 				<Content createAnswer={this.createAnswer} getLoggedUser={this.getLoggedUser}
 				checkAuth={this.props.checkAuth} getQuestion={this.getQuestion}
 				query={this.state.query} question={this.state.question}
 				text={this.state.text} getPoints={this.getPoints}
-				streakToZero={this.streakToZero} removePoint={this.removePoint} />
+				streakToZero={this.streakToZero} removePoint={this.removePoint} />}
 				<Bottonbar rulesMode={this.rulesMode}/>
 			</div>
 		)

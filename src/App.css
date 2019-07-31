@@ -29,3 +29,24 @@
 .message-answer-correct{
 	display: block !important;
 }
+
+#rules-square{
+	height: calc(100vh - 140px - 60px);
+	background-color: white;
+	margin:0;
+	padding:20px;
+	overflow-y:scroll;
+}
+
+#rules-square > h2{
+	font-style:italic;
+	font-weight: bold;
+	display: inline-block;
+}
+
+#rules-square > span{
+	cursor: pointer;
+	float: right;
+	text-decoration: underline;
+	font-style: italic;
+}

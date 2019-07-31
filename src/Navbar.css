@@ -7,7 +7,7 @@
 	padding-left: 15px;
 	padding-right: 15px;
 	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
-	box-shadow: 6px 14px 19px 4px rgba(0,0,0,0.27);
+	/* box-shadow: 6px 14px 19px 4px rgba(0,0,0,0.27); */
 }
 
 #game-logo{
