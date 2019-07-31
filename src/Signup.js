@@ -35,7 +35,6 @@ class Signup extends Component {
 				localStorage.setItem('token', res.data.token)
 				this.props.auth()
 			} else  {
-				console.log(res);
 				document.getElementById('error_message').innerHTML=`${res.data}`
 			}
 
