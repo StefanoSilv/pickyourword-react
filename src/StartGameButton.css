@@ -9,3 +9,16 @@
 	border: 0px;
 
 }
+
+@media(max-width:662px){
+#start-game-button{
+	position: absolute;
+	align-self: center;
+	justify-self: center;
+	width: 200px;
+	height:20%;
+	border-radius: 10px;
+	background-image: linear-gradient(to right, #16A8E0, #31BDD4);
+	border: 0px;
+	}
+}

@@ -13,3 +13,18 @@
 	background-color: #F1F1F1;
 	justify-items:center;
 }
+
+@media(max-width: 662px){
+	#button-part{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-self:center;
+		grid-column-gap: 40px;
+	}
+}
+
+@media(max-width: 580px){
+	#content.row{
+		margin-right: 0px;
+	}
+}

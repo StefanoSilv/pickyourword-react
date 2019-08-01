@@ -21,3 +21,10 @@
 #rules{
 	cursor: pointer;
 }
+
+@media(max-width: 662px){
+	#info{
+		line-height: 10px;
+		padding-left: 10px;
+	}
+}

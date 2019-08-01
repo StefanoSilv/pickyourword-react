@@ -62,3 +62,14 @@ i{
 	font-weight: bold !important;
 	text-transform: capitalize !important;
 }
+
+@media(max-width: 662px){
+	#user-account{
+		cursor:pointer;
+		margin-top: 20px;
+		text-decoration: underline;
+		color: #F1F1F1;
+		margin-bottom: 5px;
+		padding:5px;
+	}
+}
