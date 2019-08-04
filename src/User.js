@@ -41,6 +41,9 @@ componentWillReceiveProps(props){
 	this.setState({
 		trophy: props.trophy
 	})
+	this.setState({
+		me: props.me
+	})
 	this.stylePremium()
 }
 
