@@ -46,12 +46,18 @@
 
 @media(max-width: 662px){
 	#answer-box{
-		align-self: flex-end;
-		background-color: #F1F1F1;
-		border-radius: 50px;
-		color: #7D7D7D;
-		margin-top: 15px;
-		box-shadow: 15px 17px 38px 12px rgba(0,0,0,0.26);
 		width: 450px;
+	}
+}
+
+@media(max-width: 600px){
+	#answer-box{
+		width: 350px;
+	}
+}
+
+@media(max-width: 360px){
+	#answer-box{
+		width: 300px;
 	}
 }

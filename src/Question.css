@@ -50,3 +50,15 @@
 .displayOff{
 	display: none !important;
 }
+
+@media(max-width: 600px){
+	#question-box{
+		width: 350px;
+	}
+}
+
+@media(max-width: 360px){
+	#question-box{
+		width: 300px;
+	}
+}

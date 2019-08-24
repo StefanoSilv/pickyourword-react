@@ -16,6 +16,12 @@
 	box-shadow: 15px 17px 38px 2px rgba(0,0,0,0.26);
 }
 
+@media(max-width: 490px){
+	#get-premium{
+		padding:6px;
+	}
+}
+
 #user-account{
 	cursor:pointer;
 	margin-top: 20px;
